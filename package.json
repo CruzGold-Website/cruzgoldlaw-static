@@ -1,12 +1,21 @@
 {
-  "name": "outlawz",
+  "name": "cruzgoldlaw-static",
   "version": "1.0.0",
-  "description": "",
+  "description": "Static site conversion for cruzgoldlaw.com with modular assets and build scripts.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "scrape": "node scrape.mjs",
+    "build": "node build.mjs",
+    "sitemap": "node generate-sitemap.mjs",
+    "test": "echo \"No automated tests configured\""
   },
-  "keywords": [],
+  "keywords": [
+    "static-site",
+    "html",
+    "css",
+    "javascript",
+    "migration"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
