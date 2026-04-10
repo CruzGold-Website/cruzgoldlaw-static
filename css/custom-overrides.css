@@ -1,45 +1,27 @@
-/* === wp-custom-css (site customizer) === */
+/* === Site Customizer Overrides === */
+/* Colors reference theme variables from theme-inline.css:
+   --global-color-7: #0c152c (navy)
+   --global-color-8: #bf992d (gold accent)
+   --global-color-9: #3a3a3a (body text)
+   --global-color-10: #15274f (dark blue)
+   --global-color-11: #F8F2EB (cream)
+   --base-3: #ffffff (white)
+*/
 
-			/* Smooth scrolling */
-html { scroll-behavior: smooth; }
+/* ── Global ── */
+
+html {
+    scroll-behavior: smooth;
+}
+
+label {
+    color: var(--global-color-7);
+}
+
+/* ── Gradient & Overlay Components ── */
 
 .background-greadient {
-   background-image: linear-gradient(90deg, #192e59 0%, #132447 100%);
-}
-
-background-image: linear-gradient(90deg, #192e59 0%, #132447 100%);
-
-.sticky-enabled .main-navigation.is_stuck {
-	-webkit-backdrop-filter: saturate(180%) blur(5px);
-        	backdrop-filter: saturate(180%) blur(5px);
-	background: rgba(255,255,255,0.72);
-	    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .2);
-	    background: white;    background: white;
-}
-
-.sticky-enabled .main-navigation.is_stuck {
-    background: white;
-}
-
-	/* Mobile Menu Background image */
-#generate-slideout-menu:before {
-    position: absolute; 
-    width: 100%;
-    height: 100%;
-    content:'';
-    background-image: url('images/Menu_background-1.webp');
-    background-position: center center;
-    background-size: cover;
-    opacity: .3;
-	
-}
-
-label {
-    color: white;
-}
-
-label {
-    color: rgba(12, 21, 44, 1);
+    background-image: linear-gradient(90deg, #192e59 0%, #132447 100%);
 }
 
 .background-ovarlay {
@@ -58,101 +40,183 @@ label {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Adjust color and opacity */
     z-index: 1;
+    background: rgba(248, 242, 235, 0.8);
 }
 
-/* Align the last menu item to the right 
+/* ── Sticky Navigation ── */
 
-.main-navigation li:nth-last-child(1) {
-    margin-left: auto;
+.sticky-enabled .main-navigation.is_stuck {
+    -webkit-backdrop-filter: saturate(180%) blur(5px);
+    backdrop-filter: saturate(180%) blur(5px);
+    background: rgba(255, 255, 255, 0.72);
+    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .2);
 }
 
-/* Natural State for the last top-level menu item */
-.main-navigation .main-nav > ul > li:last-child > a {
-    color: #fff !important;
-    background-color: #bf992d;
-    border-radius: 4px;
-    margin: 5px 0;
+.main-navigation.sticky-navigation-transition .main-nav > ul > li > a,
+.sticky-navigation-transition .menu-toggle,
+.main-navigation.sticky-navigation-transition .menu-bar-item > a,
+.sticky-navigation-transition .navigation-branding .main-title {
+    line-height: 46px;
 }
 
-/* Hover State for the last top-level menu item */
-.main-navigation .main-nav > ul > li:last-child > a:hover {
-    color: #fff;
-    background-color: #0c152c !important; /* Change if you want a different hover effect */
-    border-radius: 4px;
+.header-wrap #site-navigation:not(.toggled) .main-nav > ul > li > a,
+.header-wrap #mobile-header:not(.toggled):not(.navigation-stick) .main-nav > ul > li > a,
+.header-wrap .main-navigation:not(.toggled):not(.navigation-stick) .menu-toggle,
+.header-wrap .main-navigation:not(.toggled):not(.navigation-stick) .menu-toggle:hover,
+.main-navigation:not(.toggled):not(.navigation-stick) .menu-bar-item:not(.close-search) > a {
+    line-height: 46px;
 }
 
-/* Ensure dropdown items under the last menu item have no background */
-.main-navigation .main-nav > ul > li:last-child ul li a {
-    background-color: transparent;
+/* ── Mobile Slideout Menu ── */
+
+#generate-slideout-menu:before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-image: url('images/Menu_background-1.webp');
+    background-position: center center;
+    background-size: cover;
+    opacity: .3;
 }
 
-/* Align the first menu item to the right (if needed) */
+/* ── Menu Item Styles ── */
+
+/* Align first item right */
 .main-navigation li:first-child {
     margin-left: auto;
 }
 
-@media (max-width: 1024px), (min-width: 1025px) {
-    .main-navigation.sticky-navigation-transition .main-nav > ul > li > a, .sticky-navigation-transition .menu-toggle, .main-navigation.sticky-navigation-transition .menu-bar-item > a, .sticky-navigation-transition .navigation-branding .main-title {
-        line-height: 46px;
-    }
+/* CTA button — last menu item */
+.main-navigation .main-nav > ul > li:last-child > a {
+    color: var(--base-3) !important;
+    background-color: var(--global-color-8);
+    border-radius: 4px;
+    margin: 5px 0;
 }
 
-/* Add top and bottom lines on hover except for the last item */
+.main-navigation .main-nav > ul > li:last-child > a:hover {
+    color: var(--base-3);
+    background-color: var(--global-color-7) !important;
+    border-radius: 4px;
+}
+
+.main-navigation .main-nav > ul > li:last-child ul li a {
+    background-color: transparent;
+}
+
+/* Hover lines on non-CTA items */
 .main-navigation .main-nav > ul > li:not(:last-child) {
     position: relative;
 }
 
-/* Top line */
 .main-navigation .main-nav > ul > li:not(:last-child)::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 2px; /* Line thickness */
-    background-color: #bf992d; /* Line color */
-    transform: translateY(-5px) scaleX(0); /* Slide up & hidden */
-    opacity: 0; /* Invisible initially */
-    transition: transform 0.4s ease, opacity 0.4s ease; /* Smooth animation */
+    height: 2px;
+    background-color: var(--global-color-8);
+    transform: translateY(-5px) scaleX(0);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-/* Bottom line */
 .main-navigation .main-nav > ul > li:not(:last-child)::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 2px; /* Line thickness */
-    background-color: #bf992d; /* Line color */
-    transform: translateY(5px) scaleX(0); /* Slide down & hidden */
-    opacity: 0; /* Invisible initially */
-    transition: transform 0.4s ease, opacity 0.4s ease; /* Smooth animation */
+    height: 2px;
+    background-color: var(--global-color-8);
+    transform: translateY(5px) scaleX(0);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-/* Hover State - Slide and Fade In */
 .main-navigation .main-nav > ul > li:not(:last-child):hover::before {
-    transform: translateY(0) scaleX(1); /* Slide into view */
-    opacity: 1; /* Fully visible */
+    transform: translateY(0) scaleX(1);
+    opacity: 1;
 }
 
 .main-navigation .main-nav > ul > li:not(:last-child):hover::after {
-    transform: translateY(0) scaleX(1); /* Slide into view */
-    opacity: 1; /* Fully visible */
+    transform: translateY(0) scaleX(1);
+    opacity: 1;
 }
 
-.background-ovarlay::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    background: rgba(248, 242, 235, 0.8);
+/* Slideout menu CTA item */
+li#menu-item-3150 {
+    color: var(--base-3);
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--global-color-8);
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
+
+li#menu-item-3150:hover {
+    background-color: var(--global-color-7) !important;
+}
+
+/* ── Desktop Overrides (1025px+) ── */
+
+@media (min-width: 1025px) {
+    .main-navigation .main-nav > ul > li:last-child > a {
+        color: var(--base-3) !important;
+        background-color: var(--global-color-8);
+        border-radius: 4px;
+        margin: 5px 0;
+    }
+}
+
+/* ── Mobile & Tablet Overrides (1024px and below) ── */
+
+@media (max-width: 1024px) {
+    .main-navigation .main-nav > ul > li:last-child > a {
+        background-color: transparent !important;
+    }
+
+    .main-navigation .main-nav ul ul li a {
+        color: #000 !important;
+    }
+
+    .main-navigation .main-nav ul li:not([class*="current-menu-"]):hover > a,
+    .main-navigation .main-nav ul li:not([class*="current-menu-"]):focus > a,
+    .main-navigation .main-nav ul li.sfHover:not([class*="current-menu-"]) > a,
+    .main-navigation .menu-bar-item:hover > a,
+    .main-navigation .menu-bar-item.sfHover > a {
+        color: var(--base-3) !important;
+    }
+}
+
+/* ── Mobile Overrides (768px and below) ── */
+
+@media (max-width: 768px) {
+    .owl-carousel {
+        overflow: hidden;
+    }
+
+    .owl-stage {
+        display: flex !important;
+        align-items: flex-start !important;
+    }
+
+    .owl-item {
+        box-sizing: border-box;
+    }
+
+    .with_frm_style .frm_submit.frm_flex {
+        justify-content: center;
+    }
+}
+
+/* ── Forms ── */
 
 .color-white .with_frm_style .frm_primary_label {
     display: block;
@@ -160,85 +224,27 @@ label {
     color: white;
 }
 
-/* Natural State for the last top-level menu item (Desktop Only) */
-@media (min-width: 1025px) {
-    .main-navigation .main-nav > ul > li:last-child > a {
-        color: #fff !important;
-        background-color: #bf992d; /* Background only on desktop */
-        border-radius: 4px;
-        margin: 5px 0;
-    }
-}
-
-/* Remove background color on mobile and tablet */
-@media (max-width: 1024px) {
-    .main-navigation .main-nav > ul > li:last-child > a {
-        background-color: transparent !important; /* Remove background */
-    }
-}
-
-/* Mobile & Tablet: Submenu Font Color Black */
-@media (max-width: 1024px) {
-    .main-navigation .main-nav ul ul li a {
-        color: #000 !important; /* Set font color to black */
-    }
-}
-
-/* Mobile-Only Hover & Focus Style */
-@media (max-width: 1024px) {
-    .main-navigation .main-nav ul li:not([class*="current-menu-"]):hover > a, 
-    .main-navigation .main-nav ul li:not([class*="current-menu-"]):focus > a, 
-    .main-navigation .main-nav ul li.sfHover:not([class*="current-menu-"]) > a, 
-    .main-navigation .menu-bar-item:hover > a, 
-    .main-navigation .menu-bar-item.sfHover > a {
-        color: #fff !important; /* Font color only on mobile */
-    }
-}
-
-/* Ensure Owl Stage is Top-Aligned on Mobile */
-@media (max-width: 768px) {
-    .owl-carousel {
-        overflow: hidden; /* Prevent extra space */
-    }
-
-    .owl-stage {
-        display: flex !important;
-        align-items: flex-start !important; /* Top-align items */
-    }
-
-    .owl-item {
-        box-sizing: border-box; /* Ensure padding/margin fits within the item */
-    }
-}
-
-@media (max-width: 768px) {
-
-.with_frm_style .frm_submit.frm_flex {
-    justify-content: center;
-}
-}
-
 .frm_style_formidable-style.with_frm_style .form-field {
     margin-bottom: 10px;
 }
 
-li#menu-item-3150 {
-    color: #ffffff;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Form submission feedback */
+.form-success {
+    padding: 20px;
+    background: #d4edda;
+    color: #155724;
+    border-radius: 5px;
+    margin-top: 15px;
     text-align: center;
-    background-color: #bf992d;
-    border-radius: 4px;
-    transition: background-color 0.3s ease; /* optional for smooth effect */
+    font-weight: 600;
 }
 
-li#menu-item-3150:hover {
-    background-color: #0c152c!important;
+.form-error {
+    padding: 20px;
+    background: #f8d7da;
+    color: #721c24;
+    border-radius: 5px;
+    margin-top: 15px;
+    text-align: center;
 }
 
-.header-wrap #site-navigation:not(.toggled) .main-nav > ul > li > a, .header-wrap #mobile-header:not(.toggled):not(.navigation-stick) .main-nav > ul > li > a, .header-wrap .main-navigation:not(.toggled):not(.navigation-stick) .menu-toggle, .header-wrap .main-navigation:not(.toggled):not(.navigation-stick) .menu-toggle:hover, .main-navigation:not(.toggled):not(.navigation-stick) .menu-bar-item:not(.close-search) > a {
-    line-height: 46px;
-}
-		
