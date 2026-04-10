@@ -28,7 +28,7 @@ Deployment target is the static site files in this repository root and asset fol
 Internal/local-only folders are git-ignored (node_modules/, site/, .claude/, .env*).
 
 
-##Large Video Asset Strategy
+## Large Video Asset Strategy
 
 Large video files are intentionally versioned for reproducible static deployments.
 If repository size becomes a concern, recommended next step is to move videos to object storage/CDN and update file URLs while keeping page markup and behavior unchanged.
