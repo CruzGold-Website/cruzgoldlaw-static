@@ -1,34 +1,77 @@
-# Cruz Gold Law Static Site
+# Cruz Gold Law — Static Site
 
-Static HTML/CSS/JS version of cruzgoldlaw.com for client review and deployment.
+Production-ready static HTML/CSS/JS build of cruzgoldlaw.com.
 
-## Links
+- **Repository:** https://github.com/huzvert/cruzgoldlaw-static
+- **Live preview:** https://output-lime-nine.vercel.app/index.html
 
-- Repository: https://github.com/huzvert/cruzgoldlaw-static
-- Deployment: https://output-lime-nine.vercel.app/index.html
+---
 
-## What This Repo Contains
-Production-ready static pages (*.html)
-Shared and modular styles in css/
-JavaScript behavior files in js/
-Site assets in images/, fonts/, and videos/
-Build/migration scripts:
-scrape.mjs (source scrape step)
-build.mjs (cleanup/modularization step)
-generate-sitemap.mjs (sitemap generation)
+## Repository Structure
+
+```
+/
+├── index.html              # Homepage
+├── *.html                  # All other pages (flat structure)
+├── css/
+│   ├── inline-shared.css   # Shared extracted inline styles
+│   ├── theme-inline.css    # GeneratePress theme variables
+│   ├── custom-overrides.css # Site Customizer overrides
+│   ├── gb-*.css            # Per-page GenerateBlocks styles
+│   └── ...                 # Third-party CSS (Owl Carousel, Swiper, etc.)
+├── js/
+│   ├── form-handler.js     # Form → webhook (set WEBHOOK_URL before deploy)
+│   └── ...                 # Third-party JS (jQuery, Swiper, etc.)
+├── images/
+├── fonts/
+├── videos/
+├── _partials/              # Shared HTML fragments (do not edit during page builds)
+│   ├── head-template.html
+│   ├── header.html
+│   └── footer.html
+├── _content/               # Source files for new pages — VA edits these
+│   └── example-blog-post.html
+├── build-page.mjs          # Assembles new pages from partials + content file
+├── build.mjs               # Original scrape-to-static build pipeline
+├── scrape.mjs              # Website scraper
+├── generate-sitemap.mjs    # Sitemap generator
+└── sitemap.xml
+```
+
+---
+
+## Adding New Pages
+
+1. Copy `_content/example-blog-post.html` → `_content/your-page-slug.html`
+2. Fill in the metadata block at the top (TITLE, DESCRIPTION, CANONICAL, CSS)
+3. Write page content below the metadata comment
+4. Run the build: `npm run build:page _content/your-page-slug.html`
+5. The assembled page appears at `your-page-slug.html` — commit and push
+
+---
 
 ## NPM Scripts
-npm run scrape - Scrape source site into local working folder
-npm run build - No-op for static host platforms (safe deploy default)
-npm run build:site - Build cleaned static output locally
-npm run sitemap - Regenerate sitemap
 
-## Deployment Notes
-Deployment target is the static site files in this repository root and asset folders.
-Internal/local-only folders are git-ignored (node_modules/, site/, .claude/, .env*).
+| Script | What it does |
+|---|---|
+| `npm run build:page _content/file.html` | Assemble a new page from partials + content file |
 
+---
 
-## Large Video Asset Strategy
+## Form Setup
 
-Large video files are intentionally versioned for reproducible static deployments.
-If repository size becomes a concern, recommended next step is to move videos to object storage/CDN and update file URLs while keeping page markup and behavior unchanged.
+`js/form-handler.js` — replace `PLACEHOLDER_WEBHOOK_URL` with the real Make/Zapier webhook URL before deploying.
+
+---
+
+## Deployment
+
+Deployed via Vercel (static output). No build step required — Vercel serves the HTML files directly from the repo root.
+
+Git-ignored: `node_modules/`, `site/`, `.vercel/`, `.env*`
+
+---
+
+## Video Assets
+
+Large video files are versioned for reproducible deployments. If repo size becomes a concern, move videos to a CDN and update `src` references in the affected HTML pages.
