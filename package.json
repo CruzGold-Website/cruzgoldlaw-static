@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build:page": "node build-page.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

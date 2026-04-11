@@ -1,0 +1,150 @@
+<!DOCTYPE html><html lang="en-US" prefix="og: https://ogp.me/ns#"><head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESCRIPTION}}">
+<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large">
+<link rel="canonical" href="{{CANONICAL}}">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{TITLE}}">
+<meta property="og:description" content="{{DESCRIPTION}}">
+<meta property="og:url" content="{{CANONICAL}}">
+<meta property="og:site_name" content="Immigration Lawyer New Jersey | Cruz Gold &amp; Associates">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{TITLE}}">
+<meta name="twitter:description" content="{{DESCRIPTION}}">
+<link rel="stylesheet" id="formidable-css" href="css/formidableforms.css" media="all">
+<link rel="stylesheet" id="generatepress-fonts-css" href="css/fonts.css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="css/block-library.css" media="all">
+<link rel="stylesheet" href="css/inline-shared.css" media="all">
+<link rel="stylesheet" id="suntyp-style-css" href="css/suntyp-slider.css" media="all">
+<link rel="stylesheet" id="owl-carousel-css-css" href="css/owl.carousel.min.css" media="all">
+<link rel="stylesheet" id="owl-carousel-custome-css-css" href="css/owl-carousel-custom.css" media="all">
+<link rel="stylesheet" id="swiper-css-css" href="css/swiper-bundle.min.css" media="all">
+<link rel="stylesheet" id="generate-style-css" href="css/generatepress-main.css" media="all">
+<link rel="stylesheet" href="css/theme-inline.css" media="all">
+<link rel="stylesheet" id="generateblocks-global-css" href="css/generateblocks-global.css" media="all">
+{{PAGE_CSS}}
+<link rel="stylesheet" id="generate-offside-css" href="css/offside.css" media="all">
+<link rel="stylesheet" id="generate-navigation-branding-css" href="css/navigation-branding.css" media="all">
+<script src="js/jquery.min.js" id="jquery-core-js"></script>
+<!-- Google tag (gtag.js) snippet added by Site Kit -->
+<script src="https://www.googletagmanager.com/gtag/js?id=GT-K4TGJWQ6" id="google_gtagjs-js" async=""></script>
+<script id="google_gtagjs-js-after">
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+gtag("set","linker",{"domains":["cruzgoldlaw.com"]});
+gtag("js", new Date());
+gtag("set", "developer_id.dZTNiMT", true);
+gtag("config", "GT-K4TGJWQ6");
+</script>
+<script>(function () {
+    let mobileTicker;
+
+    function initMobileTicker() {
+      const isMobile = window.innerWidth < 992;
+      if (!isMobile) {
+        if (mobileTicker) { mobileTicker.destroy(true, true); mobileTicker = null; }
+        return;
+      }
+      if (mobileTicker) return;
+
+      mobileTicker = new Swiper('.brand-swiper', {
+  loop: true,
+  slidesPerView: 'auto',
+  spaceBetween: 12,
+  allowTouchMove: false,
+  freeMode: true,
+  freeModeMomentum: false,
+  watchOverflow: true,
+  speed: 4000,
+  autoplay: {
+    delay: 0,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: false,
+  },
+});
+
+document.querySelector('.brand-swiper .swiper-wrapper')
+  .style.transitionTimingFunction = 'linear';
+
+      const wrapper = document.querySelector('.brand-swiper .swiper-wrapper');
+      if (wrapper) wrapper.style.transitionTimingFunction = 'linear';
+    }
+
+    window.addEventListener('DOMContentLoaded', initMobileTicker);
+    window.addEventListener('resize', function(){
+      clearTimeout(window._brandResizeTimer);
+      window._brandResizeTimer = setTimeout(initMobileTicker, 120);
+    });
+  })();</script><link rel="stylesheet" href="css/wpcode-snippets.css" media="all">
+<script>document.addEventListener("DOMContentLoaded", function () {
+  let customMobileSlider;
+
+  function initCustomMobileSlider() {
+    if (window.innerWidth < 992 && !customMobileSlider) {
+      customMobileSlider = new Swiper(".custom-mobile-slider", {
+        slidesPerView: 2.2,
+        spaceBetween: 20,
+		  speed: 8000,
+        loop: true,
+        autoplay: {
+          delay: 0,
+          disableOnInteraction: false,
+        },
+      });
+    } else if (window.innerWidth >= 992 && customMobileSlider) {
+      customMobileSlider.destroy(true, true);
+      customMobileSlider = undefined;
+    }
+  }
+
+  initCustomMobileSlider();
+  window.addEventListener("resize", initCustomMobileSlider);
+});</script><script>(function($) {
+    $(document).ready(function() {
+        var newsSlider = $('.newspost1');
+
+        newsSlider.owlCarousel({
+            loop: true,
+            margin: 20,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            dots: true,
+            nav: false,
+            responsive: {
+                0: { items: 1, margin: 10 },
+                600: { items: 2 },
+                1000: { items: 3 }
+            },
+            onInitialized: updateCarousel,
+            onTranslated: updateCarousel
+        });
+
+        function updateCarousel() {
+            $('.newspost1 .owl-item').each(function() {
+                var $item = $(this);
+                var author = $item.find('.quote-author').text();
+                if (!$item.find('.quote-author-display').length && author) {
+                    $item.append('<div class="quote-author-display">' + author + '</div>');
+                }
+                $item.find('.quote-author-display').css('color', '#999');
+            });
+
+            var activeItems = $('.newspost1 .owl-item.active');
+            var centerIndex = Math.floor(activeItems.length / 2);
+            activeItems.find('.quote-description').removeClass('quote-box');
+            activeItems.eq(centerIndex).find('.quote-description').addClass('quote-box');
+            activeItems.eq(centerIndex).find('.quote-author-display').css('color', '#192e59');
+        }
+    });
+})(jQuery);
+</script><link rel="icon" href="images/Favicon_legal_Services.png" sizes="32x32">
+<link rel="icon" href="images/Favicon_legal_Services.png" sizes="192x192">
+<link rel="apple-touch-icon" href="images/Favicon_legal_Services.png">
+<meta name="msapplication-TileImage" content="images/Favicon_legal_Services.png">
+		<link rel="stylesheet" href="css/custom-overrides.css" media="all">
+<link rel="stylesheet" id="fluent-form-styles-css" href="css/fluent-forms-public.css" media="all">
+<link rel="stylesheet" id="fluentform-public-default-css" href="css/fluent-forms-default.css" media="all">
+
+</head>
