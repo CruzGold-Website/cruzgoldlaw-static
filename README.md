@@ -60,7 +60,7 @@ Production-ready static HTML/CSS/JS build of cruzgoldlaw.com.
 
 ## Form Setup
 
-`js/form-handler.js` — replace `PLACEHOLDER_WEBHOOK_URL` with the real Make/Zapier webhook URL before deploying.
+`js/form-handler.js` — routes form submissions to location-specific Zapier webhooks (NJ, Philadelphia, Houston). Webhook URLs are configured and live.
 
 ---
 
