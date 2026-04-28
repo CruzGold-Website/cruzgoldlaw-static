@@ -252,8 +252,26 @@ function injectCalendlyHead(html) {
 function buildReplacementHtml(utmSource) {
   // The widget needs a min-height to render. 700px is Calendly's recommended
   // baseline for inline embeds with date+time picker visible at once.
+  //
+  // We emit Calendly's CANONICAL inline-embed pattern: the embed div carries
+  // a `data-url` attribute with the full Calendly URL (utm_source already
+  // baked in as a query param). Calendly's widget.js scans the DOM at load
+  // time and auto-initialises every `.calendly-inline-widget[data-url]` it
+  // finds — no programmatic `Calendly.initInlineWidget()` call needed.
+  //
+  // Why this matters: widget.js loads with `async` (so the browser parses
+  // it whenever the network has bandwidth), which means our previous
+  // approach of calling `Calendly.initInlineWidget()` from a `defer` script
+  // had an inherent race — `defer` fires at DOMContentLoaded but `async`
+  // can fire later, leaving `window.Calendly` undefined when our code ran.
+  // The `data-url` pattern lets widget.js handle the timing internally.
+  //
+  // We retain `data-source` as a redundant attribute for traceability +
+  // any future overrides; the live attribution is what's in `data-url`.
   const dataSource = utmSource.replace(/"/g, '&quot;');
-  return `<div class="calendly-inline-widget" data-source="${dataSource}" style="min-width:320px;height:700px;"></div>`;
+  const calendlyUrl = `${CALENDLY_BASE_URL}?utm_source=${encodeURIComponent(utmSource)}`;
+  const dataUrl = calendlyUrl.replace(/"/g, '&quot;');
+  return `<div class="calendly-inline-widget" data-url="${dataUrl}" data-source="${dataSource}" style="min-width:320px;height:700px;"></div>`;
 }
 
 // ─────────────────────────────────────────────────────────────
