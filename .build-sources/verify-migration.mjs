@@ -184,6 +184,42 @@ check('robots.txt exists', fs.existsSync(path.join(ROOT, 'robots.txt')));
 check('404.html exists', fs.existsSync(path.join(ROOT, '404.html')));
 
 // ─────────────────────────────────────────────────────────────────────────────
+// Check 12-14: Calendly embed integrity
+// ─────────────────────────────────────────────────────────────────────────────
+console.log('\n━━━ Calendly embed ━━━');
+let pagesWithoutCalendly = [];
+let pagesWithFluentForm = [];
+let pagesWithoutCalendlyAssets = [];
+const expectedCalendlyAssets = [
+  'assets.calendly.com/assets/external/widget.css',
+  'assets.calendly.com/assets/external/widget.js',
+  '/js/calendly-init.js',
+];
+
+for (const rel of htmlFiles) {
+  if (rel === '404.html') continue;
+  const content = fs.readFileSync(path.join(ROOT, rel), 'utf8');
+  if (!content.includes('class="calendly-inline-widget"')) {
+    pagesWithoutCalendly.push(rel);
+  }
+  if (/fluentform|fluent_form|fluent-form/.test(content)) {
+    pagesWithFluentForm.push(rel);
+  }
+  for (const asset of expectedCalendlyAssets) {
+    if (!content.includes(asset)) {
+      pagesWithoutCalendlyAssets.push(`${rel} (missing ${asset})`);
+      break;
+    }
+  }
+}
+check('All pages have Calendly inline embed', pagesWithoutCalendly.length === 0,
+  pagesWithoutCalendly.length ? `missing in ${pagesWithoutCalendly.length} files: ${pagesWithoutCalendly.slice(0, 3).join(', ')}` : '');
+check('No FluentForms refs remain', pagesWithFluentForm.length === 0,
+  pagesWithFluentForm.length ? `${pagesWithFluentForm.length} files: ${pagesWithFluentForm.slice(0, 3).join(', ')}` : '');
+check('All pages load Calendly assets', pagesWithoutCalendlyAssets.length === 0,
+  pagesWithoutCalendlyAssets.length ? `${pagesWithoutCalendlyAssets.length} files; first: ${pagesWithoutCalendlyAssets[0]}` : '');
+
+// ─────────────────────────────────────────────────────────────────────────────
 // Check 11: spot-check asset references resolve
 // ─────────────────────────────────────────────────────────────────────────────
 console.log('\n━━━ Asset reference resolution (spot check) ━━━');
