@@ -193,7 +193,7 @@ let pagesWithoutCalendlyAssets = [];
 const expectedCalendlyAssets = [
   'assets.calendly.com/assets/external/widget.css',
   'assets.calendly.com/assets/external/widget.js',
-  '/js/calendly-init.js',
+  '/js/calendly-init.v2.js',
 ];
 
 for (const rel of htmlFiles) {

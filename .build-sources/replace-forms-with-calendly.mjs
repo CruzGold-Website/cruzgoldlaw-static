@@ -30,7 +30,7 @@
  *   5. Inject (in <head>):
  *        - Calendly widget.css link
  *        - Calendly widget.js script (async)
- *        - Local /js/calendly-init.js script (defer)
+ *        - Local /js/calendly-init.v2.js script (defer)
  *      Idempotent: if any of the three is already present, don't add a duplicate.
  *
  *   6. Write the file back.
@@ -230,7 +230,7 @@ function stripFluentFormAssets(html) {
 const CALENDLY_HEAD_INJECT = `<link rel="preconnect" href="https://assets.calendly.com">
 <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-<script src="/js/calendly-init.js" defer></script>
+<script src="/js/calendly-init.v2.js" defer></script>
 </head>`;
 
 function injectCalendlyHead(html) {
