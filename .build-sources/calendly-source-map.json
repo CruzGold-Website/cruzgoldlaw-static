@@ -1,0 +1,42 @@
+{
+  "_doc": "Page slug → utm_source value passed to Calendly. Calendly forwards utm_source through to the invitee.created webhook on tracking.utm_source. The CRM webhook handler maps that string to a LeadSource enum value (PR-1 work).",
+  "_enum_reference": [
+    "google_ads",
+    "website",
+    "voicemail",
+    "referral",
+    "walk_in",
+    "hackensack",
+    "houston",
+    "philadelphia",
+    "ewing",
+    "other"
+  ],
+  "_calendly_url": "https://calendly.com/zgold-cruzgoldlaw/free-immigration-consult-organic",
+  "_resolution_order_doc": "1) Exact slug match, 2) Substring match (priority order in 'patterns'), 3) Default 'website'",
+  "exact": {
+    "immigration-lawyer-houston": "houston",
+    "immigration-lawyer-philadelphia": "philadelphia",
+    "compassionate-immigration-lawyer-elizabeth-nj": "ewing",
+    "cruz-gold-law-trusted-immigration-lawyers-in-new-jersey": "ewing",
+    "dedicated-immigration-lawyer-in-jersey-city": "ewing",
+    "family-immigration-lawyer-new-jersey": "ewing",
+    "h1b-visa-lawyer-new-jersey": "ewing",
+    "immigration-lawyer-new-jersey": "ewing",
+    "naturalization-lawyer-new-jersey": "ewing",
+    "new-jersey-us-immigration-laws": "ewing",
+    "o-1-visa-lawyer-nj": "ewing",
+    "student-visa-lawyer-new-jersey": "ewing",
+    "work-visa-lawyer-new-jersey": "ewing",
+    "estate-planning-elder-law-new-jersey": "ewing",
+    "traffic-ticket-dui-lawyer-new-jersey": "ewing"
+  },
+  "patterns": [
+    { "match": "houston", "value": "houston" },
+    { "match": "philadelphia", "value": "philadelphia" },
+    { "match": "hackensack", "value": "hackensack" },
+    { "match": "new-jersey", "value": "ewing" },
+    { "match": "-nj", "value": "ewing" }
+  ],
+  "default": "website"
+}
