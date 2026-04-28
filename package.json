@@ -1,15 +1,16 @@
 {
-  "name": "outlawz",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "cruzgoldlaw-static",
+  "version": "2.0.0",
+  "description": "Cruz Gold & Associates — static site for Cloudflare Pages",
+  "private": true,
   "scripts": {
-    "build:page": "node build-page.mjs",
+    "build:page": "node .build-sources/build-page.mjs",
+    "sitemap": "node .build-sources/generate-sitemap.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "UNLICENSED",
   "dependencies": {
     "website-scraper": "^6.0.0"
   }

@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Block private/internal paths
+Disallow: /.build-sources/
+Disallow: /_partials/
+Disallow: /_content/
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+
+Sitemap: https://cruzgoldlaw.com/sitemap.xml
