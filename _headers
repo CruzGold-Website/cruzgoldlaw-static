@@ -12,15 +12,10 @@
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Long-term caching for immutable assets (CSS/JS/fonts/images)
-# Pages auto-purges on every deploy, so this is safe.
+# Long-term caching for immutable assets (fonts/images/videos)
+# These are content-addressed (hashed filenames) or rarely change. Safe to mark
+# `immutable` because the URL changes when the content changes.
 # ─────────────────────────────────────────────────────────────────────────────
-/css/*
-  Cache-Control: public, max-age=31536000, immutable
-
-/js/*
-  Cache-Control: public, max-age=31536000, immutable
-
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
 
@@ -29,6 +24,29 @@
 
 /videos/*
   Cache-Control: public, max-age=31536000, immutable
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CSS and JS — must revalidate, NOT immutable
+#
+# Why not `immutable`: these files use unversioned paths (e.g. `/js/calendly-
+# init.v2.js`, `/css/main.css`). When we ship a content change, the URL stays
+# the same, but `immutable` tells the Cloudflare CDN to skip revalidation
+# entirely until max-age expires. With `max-age=31536000, immutable`, an edit
+# can take up to a year to propagate to clients with a cached copy.
+#
+# `must-revalidate` + a sensible max-age means the CDN will conditionally
+# fetch (304 Not Modified) the asset against origin on each cache lookup,
+# picking up new content on the next deploy automatically.
+#
+# Trade-off vs. immutable: more conditional GETs to origin. Pages handles
+# these efficiently (304 responses are cheap), and the protection against
+# stale-asset incidents is worth far more than the extra requests.
+# ─────────────────────────────────────────────────────────────────────────────
+/css/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/js/*
+  Cache-Control: public, max-age=3600, must-revalidate
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Short cache for HTML — allows fast content updates
