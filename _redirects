@@ -1,0 +1,118 @@
+# Cloudflare Pages redirects for cruzgoldlaw.com
+#
+# Format: source destination [status_code]
+# Default status: 302. Use 301 for permanent SEO-preserving redirects.
+#
+# Order matters — first match wins. Static rules before dynamic.
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Legacy .html URLs → trailing-slash directory URLs (preserve SEO)
+# Catches any old backlinks pointing to /about.html etc.
+# ─────────────────────────────────────────────────────────────────────────────
+/about.html                                              /about/                                              301
+/adjustment-of-status-lawyer.html                        /adjustment-of-status-lawyer/                        301
+/app-privacy-policy.html                                 /app-privacy-policy/                                 301
+/blog.html                                               /blog/                                               301
+/category-blog.html                                      /category-blog/                                      301
+/category-blog-page-2.html                               /category-blog-page-2/                               301
+/category-blog-page-3.html                               /category-blog-page-3/                               301
+/client-testimonials.html                                /client-testimonials/                                301
+/common-misconceptions-in-immigration-law.html           /common-misconceptions-in-immigration-law/           301
+/compassionate-immigration-lawyer-elizabeth-nj.html      /compassionate-immigration-lawyer-elizabeth-nj/      301
+/contact.html                                            /contact/                                            301
+/cruz-gold-law-trusted-immigration-lawyers-in-new-jersey.html  /cruz-gold-law-trusted-immigration-lawyers-in-new-jersey/  301
+/dedicated-immigration-lawyer-in-jersey-city.html        /dedicated-immigration-lawyer-in-jersey-city/        301
+/e-2-visa-lawyer-for-investors-entrepreneurs.html        /e-2-visa-lawyer-for-investors-entrepreneurs/        301
+/eb-1a-lawyer-expert-guidance.html                       /eb-1a-lawyer-expert-guidance/                       301
+/eb-3-visa-lawyer.html                                   /eb-3-visa-lawyer/                                   301
+/estate-planning-elder-law-new-jersey.html               /estate-planning-elder-law-new-jersey/               301
+/experienced-fiance-visa-lawyer.html                     /experienced-fiance-visa-lawyer/                     301
+/expert-eb-5-visa-lawyer.html                            /expert-eb-5-visa-lawyer/                            301
+/family-immigration-lawyer-new-jersey.html               /family-immigration-lawyer-new-jersey/               301
+/family-immigration-lp.html                              /family-immigration-lp/                              301
+/family-law.html                                         /family-law/                                         301
+/h1b-visa-lawyer-new-jersey.html                         /h1b-visa-lawyer-new-jersey/                         301
+/immigration-attorneys-near-me.html                      /immigration-attorneys-near-me/                      301
+/immigration-law.html                                    /immigration-law/                                    301
+/immigration-lawyer-cost.html                            /immigration-lawyer-cost/                            301
+/immigration-lawyer-houston.html                         /immigration-lawyer-houston/                         301
+/immigration-lawyer-new-jersey.html                      /immigration-lawyer-new-jersey/                      301
+/immigration-lawyer-philadelphia.html                    /immigration-lawyer-philadelphia/                    301
+/index.html                                              /                                                    301
+/locations-programmatic-template.html                    /locations-programmatic-template/                    301
+/municipal-court.html                                    /municipal-court/                                    301
+/naturalization-lawyer-new-jersey.html                   /naturalization-lawyer-new-jersey/                   301
+/navigating-immigration-changes-under-the-2025-trump-administration.html  /navigating-immigration-changes-under-the-2025-trump-administration/  301
+/new-jersey-us-immigration-laws.html                     /new-jersey-us-immigration-laws/                     301
+/o-1-visa-lawyer-nj.html                                 /o-1-visa-lawyer-nj/                                 301
+/partner-with-a-dedicated-eb-2-niw-lawyer.html           /partner-with-a-dedicated-eb-2-niw-lawyer/           301
+/privacy-policy.html                                     /privacy-policy/                                     301
+/spouse-immigration-lp.html                              /spouse-immigration-lp/                              301
+/student-visa-lawyer-new-jersey.html                     /student-visa-lawyer-new-jersey/                     301
+/testimonial-agnes-kamara.html                           /testimonial-agnes-kamara/                           301
+/testimonial-ali-jamil.html                              /testimonial-ali-jamil/                              301
+/testimonial-anchal-kannambadi.html                      /testimonial-anchal-kannambadi/                      301
+/testimonial-andrew.html                                 /testimonial-andrew/                                 301
+/testimonial-dave-ropiak.html                            /testimonial-dave-ropiak/                            301
+/testimonial-frank-farmer.html                           /testimonial-frank-farmer/                           301
+/testimonial-fredy-tay-red.html                          /testimonial-fredy-tay-red/                          301
+/testimonial-herminia-maxon.html                         /testimonial-herminia-maxon/                         301
+/testimonial-jenny-bock.html                             /testimonial-jenny-bock/                             301
+/testimonial-laura-szwed.html                            /testimonial-laura-szwed/                            301
+/testimonial-leo-brunetti.html                           /testimonial-leo-brunetti/                           301
+/testimonial-lukas-mchugh.html                           /testimonial-lukas-mchugh/                           301
+/testimonial-marek-zawarus.html                          /testimonial-marek-zawarus/                          301
+/testimonial-martin-sampson.html                         /testimonial-martin-sampson/                         301
+/testimonial-nicole-noonan.html                          /testimonial-nicole-noonan/                          301
+/testimonial-omar-graffie.html                           /testimonial-omar-graffie/                           301
+/testimonial-paul-maxon.html                             /testimonial-paul-maxon/                             301
+/testimonial-rachael-schuh.html                          /testimonial-rachael-schuh/                          301
+/testimonial-rune-bendix-kjoelstad.html                  /testimonial-rune-bendix-kjoelstad/                  301
+/testimonial-vanessa-noel.html                           /testimonial-vanessa-noel/                           301
+/the-waiting-game-understanding-lengthy-immigration-process-times-in-the-u-s.html  /the-waiting-game-understanding-lengthy-immigration-process-times-in-the-u-s/  301
+/tn-visa-lawyer.html                                     /tn-visa-lawyer/                                     301
+/traffic-ticket-dui-lawyer-new-jersey.html               /traffic-ticket-dui-lawyer-new-jersey/               301
+/traveling-abroad-as-a-non-citizen-key-considerations.html  /traveling-abroad-as-a-non-citizen-key-considerations/  301
+/trusted-l-1-visa-lawyer.html                            /trusted-l-1-visa-lawyer/                            301
+/trusted-marriage-green-card-lawyer.html                 /trusted-marriage-green-card-lawyer/                 301
+/understanding-the-rights-of-undocumented-individuals-in-the-usa.html  /understanding-the-rights-of-undocumented-individuals-in-the-usa/  301
+/what-we-do.html                                         /what-we-do/                                         301
+/work-visa-lawyer-new-jersey.html                        /work-visa-lawyer-new-jersey/                        301
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Extensionless URLs → trailing-slash (Pages auto-redirects /about.html → /about,
+# but Google indexed the trailing-slash form. Send /about → /about/)
+# ─────────────────────────────────────────────────────────────────────────────
+/about                                                   /about/                                              301
+/adjustment-of-status-lawyer                             /adjustment-of-status-lawyer/                        301
+/app-privacy-policy                                      /app-privacy-policy/                                 301
+/blog                                                    /blog/                                               301
+/category-blog                                           /category-blog/                                      301
+/client-testimonials                                     /client-testimonials/                                301
+/contact                                                 /contact/                                            301
+/family-law                                              /family-law/                                         301
+/immigration-law                                         /immigration-law/                                    301
+/municipal-court                                         /municipal-court/                                    301
+/privacy-policy                                          /privacy-policy/                                     301
+/what-we-do                                              /what-we-do/                                         301
+
+# ─────────────────────────────────────────────────────────────────────────────
+# WordPress legacy paths — block any leftover crawlers / probe attempts
+# These return 404 (or could redirect to home — using 404 to avoid SEO loop)
+# ─────────────────────────────────────────────────────────────────────────────
+/wp-admin/*                                              /                                                    301
+/wp-login.php                                            /                                                    301
+/wp-content/*                                            /                                                    301
+/wp-includes/*                                           /                                                    301
+/xmlrpc.php                                              /                                                    301
+/feed                                                    /                                                    301
+/feed/                                                   /                                                    301
+/comments/feed                                           /                                                    301
+/comments/feed/                                          /                                                    301
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Build sources protection — block public access to internal directories
+# ─────────────────────────────────────────────────────────────────────────────
+/.build-sources/*                                        /                                                    301
+/_partials/*                                             /                                                    301
+/_content/*                                              /                                                    301
