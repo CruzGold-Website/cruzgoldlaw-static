@@ -109,6 +109,14 @@ function rewriteHtml(html, urlMap, currentSlug) {
     return `srcset="${fixed}"`;
   });
 
+  // 3b-also: inline CSS url() in style="..." attrs (e.g. --inline-bg-image: url(images/foo.jpg))
+  //   Rewrites url(images/...) -> url(/images/...) so background images resolve from any depth.
+  //   Skip already-absolute paths (url(/...) or url(http...) or url(data:...)).
+  out = out.replace(
+    new RegExp(`url\\((?!['"]?(?:/|https?:|data:|#))(['"]?)(${ASSET_PREFIXES.join('|')})/`, 'g'),
+    'url($1/$2/'
+  );
+
   // 3c. Rewrite canonical and og:url to absolute production URL
   //     Currently: <link rel="canonical" href="about.html">
   //     Becomes:   <link rel="canonical" href="https://cruzgoldlaw.com/about/">
