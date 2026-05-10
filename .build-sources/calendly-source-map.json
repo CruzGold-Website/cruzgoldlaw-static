@@ -28,8 +28,6 @@
     "o-1-visa-lawyer-nj": "ewing",
     "student-visa-lawyer-new-jersey": "ewing",
     "work-visa-lawyer-new-jersey": "ewing",
-    "estate-planning-elder-law-new-jersey": "ewing",
-    "traffic-ticket-dui-lawyer-new-jersey": "ewing"
   },
   "patterns": [
     { "match": "houston", "value": "houston" },
