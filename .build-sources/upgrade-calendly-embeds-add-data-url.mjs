@@ -2,7 +2,7 @@
 /**
  * upgrade-calendly-embeds-add-data-url.mjs
  *
- * One-shot upgrader. Adds `data-url="<full Calendly URL with utm_source>"` to
+ * One-shot upgrader. Adds `data-url="<full Calendly URL with utm_source and hide_gdpr_banner>"` to
  * every existing `.calendly-inline-widget` div across the repo, switching the
  * pages from the broken programmatic-init pattern to Calendly's canonical
  * auto-init pattern. See replace-forms-with-calendly.mjs (buildReplacementHtml)
@@ -11,7 +11,8 @@
  * Idempotent: if a div already has `data-url`, it's left alone.
  *
  * The transformer reads `data-source="<value>"` from each embed div and uses
- * that as the `utm_source` query param in the constructed Calendly URL. This
+ * that as the `utm_source` query param in the constructed Calendly URL. It also
+ * adds `hide_gdpr_banner=1` so Calendly does not show the cookie banner. This
  * preserves the per-page attribution that PR-1 (CRM mapping) depends on.
  *
  * Usage:
@@ -38,6 +39,11 @@ const DRY_RUN = args.includes('--dry-run');
 
 const sourceMap = JSON.parse(await readFile(SOURCE_MAP_PATH, 'utf8'));
 const CALENDLY_BASE_URL = sourceMap._calendly_url;
+const CALENDLY_GDPR_PARAM = 'hide_gdpr_banner=1';
+
+function buildCalendlyUrl(utmSource) {
+  return `${CALENDLY_BASE_URL}?utm_source=${encodeURIComponent(utmSource)}&${CALENDLY_GDPR_PARAM}`;
+}
 
 function discoverPages() {
   const entries = readdirSync(REPO_ROOT, { withFileTypes: true });
@@ -106,7 +112,7 @@ function upgradeEmbedDivs(html) {
     // Extract data-source value (default to "website" if missing)
     const sourceMatch = openingTag.match(/data-source="([^"]+)"/);
     const utmSource = sourceMatch ? sourceMatch[1] : 'website';
-    const calendlyUrl = `${CALENDLY_BASE_URL}?utm_source=${encodeURIComponent(utmSource)}`;
+    const calendlyUrl = buildCalendlyUrl(utmSource);
     const dataUrlAttr = ` data-url="${calendlyUrl.replace(/"/g, '&quot;')}"`;
 
     // Inject `data-url="..."` immediately after `class="calendly-inline-widget"`.
@@ -125,7 +131,7 @@ function upgradeEmbedDivs(html) {
 async function main() {
   console.log('upgrade-calendly-embeds-add-data-url.mjs');
   console.log(`  REPO_ROOT:    ${REPO_ROOT}`);
-  console.log(`  CALENDLY_URL: ${CALENDLY_BASE_URL}`);
+  console.log(`  CALENDLY_URL: ${buildCalendlyUrl('website')}`);
   console.log(`  DRY_RUN:      ${DRY_RUN}`);
   console.log('');
 

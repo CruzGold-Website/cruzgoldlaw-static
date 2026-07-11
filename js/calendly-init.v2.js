@@ -32,7 +32,7 @@
   var FALLBACK_EMAIL_HREF = 'mailto:info@cruzgoldlaw.com';
   // Generic landing if data-url is missing for any reason — should never
   // happen with a build-time transformer but keeps the fallback link safe.
-  var FALLBACK_BASE_URL = 'https://calendly.com/zgold-cruzgoldlaw/free-immigration-consult-organic';
+  var FALLBACK_BASE_URL = 'https://calendly.com/zgold-cruzgoldlaw/free-immigration-consult-organic?hide_gdpr_banner=1';
   var FALLBACK_TIMEOUT_MS = 15000;
 
   function showFallbackFor(el) {

@@ -72,6 +72,11 @@ const SINGLE_SLUG = args.find((a) => !a.startsWith('--'));
 
 const sourceMap = JSON.parse(await readFile(SOURCE_MAP_PATH, 'utf8'));
 const CALENDLY_BASE_URL = sourceMap._calendly_url;
+const CALENDLY_GDPR_PARAM = 'hide_gdpr_banner=1';
+
+function buildCalendlyUrl(utmSource) {
+  return `${CALENDLY_BASE_URL}?utm_source=${encodeURIComponent(utmSource)}&${CALENDLY_GDPR_PARAM}`;
+}
 
 function resolveUtmSource(slug) {
   if (sourceMap.exact && Object.prototype.hasOwnProperty.call(sourceMap.exact, slug)) {
@@ -254,9 +259,10 @@ function buildReplacementHtml(utmSource) {
   // baseline for inline embeds with date+time picker visible at once.
   //
   // We emit Calendly's CANONICAL inline-embed pattern: the embed div carries
-  // a `data-url` attribute with the full Calendly URL (utm_source already
-  // baked in as a query param). Calendly's widget.js scans the DOM at load
-  // time and auto-initialises every `.calendly-inline-widget[data-url]` it
+  // a `data-url` attribute with the full Calendly URL (utm_source and
+  // hide_gdpr_banner already baked in as query params). Calendly's widget.js
+  // scans the DOM at load time and auto-initialises every
+  // `.calendly-inline-widget[data-url]` it
   // finds — no programmatic `Calendly.initInlineWidget()` call needed.
   //
   // Why this matters: widget.js loads with `async` (so the browser parses
@@ -269,7 +275,7 @@ function buildReplacementHtml(utmSource) {
   // We retain `data-source` as a redundant attribute for traceability +
   // any future overrides; the live attribution is what's in `data-url`.
   const dataSource = utmSource.replace(/"/g, '&quot;');
-  const calendlyUrl = `${CALENDLY_BASE_URL}?utm_source=${encodeURIComponent(utmSource)}`;
+  const calendlyUrl = buildCalendlyUrl(utmSource);
   const dataUrl = calendlyUrl.replace(/"/g, '&quot;');
   return `<div class="calendly-inline-widget" data-url="${dataUrl}" data-source="${dataSource}" style="min-width:320px;height:700px;"></div>`;
 }
@@ -367,7 +373,7 @@ async function transformPage(page) {
 async function main() {
   console.log(`replace-forms-with-calendly.mjs`);
   console.log(`  REPO_ROOT:    ${REPO_ROOT}`);
-  console.log(`  CALENDLY_URL: ${CALENDLY_BASE_URL}`);
+  console.log(`  CALENDLY_URL: ${buildCalendlyUrl('website')}`);
   console.log(`  DRY_RUN:      ${DRY_RUN}`);
   console.log(`  SINGLE_SLUG:  ${SINGLE_SLUG ?? '(all pages)'}`);
   console.log('');

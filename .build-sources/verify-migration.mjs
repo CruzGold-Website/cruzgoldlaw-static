@@ -16,6 +16,7 @@
  *   9. _headers file exists
  *  10. robots.txt exists
  *  11. All asset refs (/css/, /js/, /images/) resolve to real files
+ *  12. Calendly data-url embeds suppress the GDPR cookie banner
  */
 
 import fs from 'node:fs';
@@ -184,12 +185,13 @@ check('robots.txt exists', fs.existsSync(path.join(ROOT, 'robots.txt')));
 check('404.html exists', fs.existsSync(path.join(ROOT, '404.html')));
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Check 12-14: Calendly embed integrity
+// Check 12-15: Calendly embed integrity
 // ─────────────────────────────────────────────────────────────────────────────
 console.log('\n━━━ Calendly embed ━━━');
 let pagesWithoutCalendly = [];
 let pagesWithFluentForm = [];
 let pagesWithoutCalendlyAssets = [];
+let pagesWithoutCalendlyGdprSuppression = [];
 const expectedCalendlyAssets = [
   'assets.calendly.com/assets/external/widget.css',
   'assets.calendly.com/assets/external/widget.js',
@@ -201,6 +203,11 @@ for (const rel of htmlFiles) {
   const content = fs.readFileSync(path.join(ROOT, rel), 'utf8');
   if (!content.includes('class="calendly-inline-widget"')) {
     pagesWithoutCalendly.push(rel);
+  }
+  const calendlyDataUrls = [...content.matchAll(/data-url="(https:\/\/calendly\.com\/[^"]+)"/g)].map((m) => m[1]);
+  if (content.includes('class="calendly-inline-widget"') &&
+      (calendlyDataUrls.length === 0 || calendlyDataUrls.some((url) => !url.includes('hide_gdpr_banner=1')))) {
+    pagesWithoutCalendlyGdprSuppression.push(rel);
   }
   if (/fluentform|fluent_form|fluent-form/.test(content)) {
     pagesWithFluentForm.push(rel);
@@ -218,6 +225,8 @@ check('No FluentForms refs remain', pagesWithFluentForm.length === 0,
   pagesWithFluentForm.length ? `${pagesWithFluentForm.length} files: ${pagesWithFluentForm.slice(0, 3).join(', ')}` : '');
 check('All pages load Calendly assets', pagesWithoutCalendlyAssets.length === 0,
   pagesWithoutCalendlyAssets.length ? `${pagesWithoutCalendlyAssets.length} files; first: ${pagesWithoutCalendlyAssets[0]}` : '');
+check('All Calendly data-url embeds hide the GDPR banner', pagesWithoutCalendlyGdprSuppression.length === 0,
+  pagesWithoutCalendlyGdprSuppression.length ? `${pagesWithoutCalendlyGdprSuppression.length} files; first: ${pagesWithoutCalendlyGdprSuppression[0]}` : '');
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Check 11: spot-check asset references resolve
