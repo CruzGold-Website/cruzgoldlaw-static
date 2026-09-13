@@ -1,0 +1,116 @@
+.award-recognition {
+  background-color: var(--global-color-11);
+  border-bottom: 1px solid rgba(191, 153, 45, 0.28);
+  border-top: 1px solid rgba(191, 153, 45, 0.28);
+  padding: 40px 20px;
+}
+
+.award-recognition__inner {
+  align-items: center;
+  display: flex;
+  gap: 48px;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.award-recognition__badge {
+  flex: 0 0 220px;
+  line-height: 0;
+}
+
+.award-recognition__badge a {
+  border-radius: 50%;
+  display: inline-flex;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.award-recognition__badge a:hover {
+  filter: drop-shadow(0 8px 12px rgba(12, 21, 44, 0.18));
+  transform: translateY(-2px);
+}
+
+.award-recognition__badge a:focus-visible,
+.award-recognition__link:focus-visible {
+  outline: 3px solid var(--global-color-7);
+  outline-offset: 4px;
+}
+
+.award-recognition__badge img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+.award-recognition__content {
+  max-width: 620px;
+}
+
+.award-recognition__eyebrow {
+  color: var(--global-color-7);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+.award-recognition h2 {
+  color: var(--global-color-7);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: 1.2;
+  margin: 0 0 16px;
+  text-wrap: balance;
+}
+
+.award-recognition__content > p:not(.award-recognition__eyebrow) {
+  color: var(--global-color-9);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  margin: 0 0 20px;
+  text-wrap: pretty;
+}
+
+.award-recognition__link {
+  color: var(--global-color-7);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--global-color-8);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.award-recognition__link:is(:hover, :focus) {
+  color: var(--global-color-8);
+}
+
+@media (max-width: 767px) {
+  .award-recognition {
+    padding: 32px 20px 40px;
+  }
+
+  .award-recognition__inner {
+    flex-direction: column;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .award-recognition__badge {
+    flex-basis: auto;
+  }
+
+  .award-recognition__badge img {
+    height: 180px;
+    width: 180px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .award-recognition__badge a {
+    transition: none;
+  }
+
+  .award-recognition__badge a:hover {
+    transform: none;
+  }
+}
