@@ -332,4 +332,9 @@
     <loc>https://cruzgoldlaw.com/n400-processing-time/</loc>
     <lastmod>2026-08-18</lastmod>
   </url>
+  <url>
+    <loc>https://cruzgoldlaw.com/sitemap/</loc>
+    <lastmod>2026-10-01</lastmod>
+    <priority>0.3</priority>
+  </url>
 </urlset>
