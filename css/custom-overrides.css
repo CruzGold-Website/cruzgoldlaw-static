@@ -300,3 +300,31 @@ main .cg-svc-card li a,main .cg-guide h3 a,main p.cg-reviews-more a:not(.button-
 li#menu-item-3150,li#menu-item-3150 > a,li.menu-item-3150,li.menu-item-3150 > a,#mobile-header li.menu-item-3150 > a{color:#fff !important}
 .header-wrap #site-navigation:not(.toggled) .main-nav > ul > li[class*="current-menu-"]:not(:last-child) > a{color:var(--cg-gold-text)}
 .site-footer a[data-type="link"]{text-decoration:underline;text-underline-offset:2px}
+
+/* FAQ accordions and smaller content headings, 2026-10-02 */
+.cg-acc{border-bottom:1px solid #e6dfd2;margin:0}
+.cg-acc:first-of-type{border-top:1px solid #e6dfd2}
+.cg-acc>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 4px;font-family:var(--gp-font--jost);font-size:19px;font-weight:500;line-height:1.35;color:var(--global-color-7)}
+.cg-acc>summary::-webkit-details-marker{display:none}
+.cg-acc>summary::after{content:"+";flex:0 0 auto;font-size:28px;font-weight:300;line-height:1;color:var(--cg-gold-text,#866a19)}
+.cg-acc[open]>summary::after{content:"\2212"}
+.cg-acc>summary:hover{color:var(--cg-gold-text,#866a19)}
+.cg-acc>summary:focus-visible{outline:2px solid var(--cg-gold-text,#866a19);outline-offset:2px}
+.cg-acc .cg-acc-body{padding:0 4px 18px}
+.cg-acc .cg-acc-body p{margin:0 0 10px;color:var(--global-color-9)}
+.cg-acc .cg-acc-body p:last-child{margin-bottom:0}
+.cg-nj-content h2{font-size:42px;line-height:1.15;margin-top:44px}
+.cg-nj-content h2:first-child{margin-top:0}
+.cg-nj-content h3{font-family:var(--gp-font--jost);font-size:21px;font-weight:600;line-height:1.35;color:var(--global-color-7);margin:26px 0 8px}
+.cg-quote{margin:22px 0;padding:6px 0 6px 22px;border-left:3px solid var(--global-color-8);font-style:normal}
+.cg-quote p{font-family:var(--gp-font--radley);font-size:21px;line-height:1.45;color:var(--global-color-7);margin:0 0 8px}
+.cg-quote cite{font-style:normal;font-size:14px;color:var(--global-color-12)}
+@media (max-width:767px){.cg-acc>summary{font-size:17px;padding:16px 2px}.cg-nj-content h2{font-size:32px}.cg-quote p{font-size:18px}}
+
+/* guide text column, 2026-10-02 */
+.cg-guide-body{max-width:860px;margin:0 auto;padding:40px 24px 64px}
+.cg-guide-body h2{font-size:38px;line-height:1.2;margin:48px 0 14px}
+.cg-guide-body h3{font-size:24px;line-height:1.3;margin:28px 0 8px}
+.cg-guide-body table{width:100%;border-collapse:collapse;margin:16px 0 24px}
+.cg-guide-body th,.cg-guide-body td{border:1px solid #e6dfd2;padding:10px 12px;text-align:left;vertical-align:top}
+@media (max-width:767px){.cg-guide-body{padding:28px 16px 48px}.cg-guide-body h2{font-size:30px}.cg-guide-body h3{font-size:21px}}
