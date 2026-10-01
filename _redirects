@@ -5,6 +5,12 @@
 #
 # Order matters — first match wins. Static rules before dynamic.
 
+# Old URLs that other sites still link to (404 until 2026-10)
+/new-jersey-immigration-lawyers/                        /immigration-lawyer-new-jersey/                      301
+/immigrat                                               /immigration-law/                                    301
+/immigration-lawyer-philadelphia/embed/                 /immigration-lawyer-philadelphia/                    301
+/testimonial/ali-jamil/                                 /testimonial-ali-jamil/                              301
+
 # ─────────────────────────────────────────────────────────────────────────────
 # Legacy .html URLs → trailing-slash directory URLs (preserve SEO)
 # Catches any old backlinks pointing to /about.html etc.
