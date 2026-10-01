@@ -273,3 +273,30 @@ h1.gb-text-7ab3ce25{font-size:60px;line-height:60px}
 .slideout-navigation .main-nav ul li[class*="current-menu-"] > a {
     color: var(--global-color-8) !important;
 }
+
+/* Contrast (2026-10-02): the brand gold #bf992d is 2.7:1 on white. Links, buttons and gold text on light
+   backgrounds use #866a19 (5.1:1 on white, 4.6:1 on the beige #f8f2eb, 5.1:1 under white text).
+   Gold on navy, borders, lines and stars keep #bf992d. */
+:root{--cg-gold-text:#866a19}
+a{color:var(--cg-gold-text)}
+.button-style,a.button,a.wp-block-button__link:not(.has-background){background-color:var(--cg-gold-text)}
+li#menu-item-3150{background-color:var(--cg-gold-text)}
+@media (min-width:1025px){.main-navigation .main-nav > ul > li:last-child > a{background-color:var(--cg-gold-text)}}
+.gb-text-68d8b54c,.gb-text-d1b4834c,.gb-text-53e22cad{color:var(--cg-gold-text)}
+/* accessibility: label paragraphs that replaced headings keep the heading look */
+.cg-h4{font-family:var(--gp-font--jost);font-weight:400;font-size:18px;line-height:1.2;margin-bottom:5px}
+.cg-h5{font-family:var(--gp-font--mulish);font-weight:400;font-size:20px;line-height:1.2;margin-bottom:20px}
+.cg-related-links li{margin-bottom:2px}
+.cg-related-links a{display:inline-block;padding:3px 0}
+.owl-dots .owl-dot{padding:8px 4px !important}
+
+/* second pass after axe: links inside body text are underlined (the darker gold sits close to the grey text),
+   remaining gold labels on light backgrounds, white text on the gold menu button at every width,
+   current menu item in the light desktop header */
+main p a:not(.button-style):not(.gb-text),main li a:not(.button-style),main .entry-summary a.read-more{text-decoration:underline;text-underline-offset:2px}
+main .cg-svc-card li a,main .cg-guide h3 a,main p.cg-reviews-more a:not(.button-style):not(.gb-text),main p.gb-text-09e52012 a:not(.button-style):not(.gb-text){text-decoration:none}
+.cg-guide .cg-more a{color:var(--cg-gold-text)}
+.gb-text-c7e13df1,.gb-text-ab74e277,.gb-text-003180d5,.gb-text-970f098b,.gb-text-dc8ffce2,.gb-text-0759afbf{color:var(--cg-gold-text)}
+li#menu-item-3150,li#menu-item-3150 > a,li.menu-item-3150,li.menu-item-3150 > a,#mobile-header li.menu-item-3150 > a{color:#fff !important}
+.header-wrap #site-navigation:not(.toggled) .main-nav > ul > li[class*="current-menu-"]:not(:last-child) > a{color:var(--cg-gold-text)}
+.site-footer a[data-type="link"]{text-decoration:underline;text-underline-offset:2px}
