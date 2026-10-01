@@ -7,7 +7,7 @@
 
 # Old URLs that other sites still link to (404 until 2026-10)
 /new-jersey-immigration-lawyers/                        /immigration-lawyer-new-jersey/                      301
-/immigrat                                               /immigration-law/                                    301
+/immigrat                                               /                                                    301
 /immigration-lawyer-philadelphia/embed/                 /immigration-lawyer-philadelphia/                    301
 /testimonial/ali-jamil/                                  /client-testimonials/                                301
 
@@ -37,7 +37,7 @@
 /family-immigration-lp.html                              /family-immigration-lp/                              301
 /h1b-visa-lawyer-new-jersey.html                         /h1b-visa-lawyer-new-jersey/                         301
 /immigration-attorneys-near-me.html                      /immigration-attorneys-near-me/                      301
-/immigration-law.html                                    /immigration-law/                                    301
+/immigration-law.html                                    /                                                    301
 /immigration-lawyer-cost.html                            /immigration-lawyer-cost/                            301
 /immigration-lawyer-houston.html                         /immigration-lawyer-houston/                         301
 /immigration-lawyer-new-jersey.html                      /immigration-lawyer-new-jersey/                      301
@@ -77,7 +77,7 @@
 /trusted-l-1-visa-lawyer.html                            /trusted-l-1-visa-lawyer/                            301
 /trusted-marriage-green-card-lawyer.html                 /trusted-marriage-green-card-lawyer/                 301
 /understanding-the-rights-of-undocumented-individuals-in-the-usa.html  /understanding-the-rights-of-undocumented-individuals-in-the-usa/  301
-/what-we-do.html                                         /what-we-do/                                         301
+/what-we-do.html                                         /                                                         301
 /work-visa-lawyer-new-jersey.html                        /work-visa-lawyer-new-jersey/                        301
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -91,9 +91,9 @@
 /category-blog                                           /blog/                                               301
 /client-testimonials                                     /client-testimonials/                                301
 /contact                                                 /contact/                                            301
-/immigration-law                                         /immigration-law/                                    301
+/immigration-law                                         /                                                    301
 /privacy-policy                                          /privacy-policy/                                     301
-/what-we-do                                              /what-we-do/                                         301
+/what-we-do                                              /                                                         301
 
 # ─────────────────────────────────────────────────────────────────────────────
 # WordPress legacy paths — block any leftover crawlers / probe attempts
@@ -138,3 +138,5 @@
 /testimonial-jenny-bock/                                 /client-testimonials/                                301
 /testimonial/*                                           /client-testimonials/                                301
 /category-blog/                                          /blog/                                               301
+/immigration-law/                                        /                                                    301
+/what-we-do/                                             /                                                    301
