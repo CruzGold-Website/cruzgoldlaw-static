@@ -251,3 +251,25 @@ li#menu-item-3150:hover {
 /* Hero page titles are H1 (they were H2): keep the H2 size from the theme */
 h1.gb-text-7ab3ce25{font-size:60px;line-height:60px}
 @media (max-width:768px){h1.gb-text-7ab3ce25{font-size:42px;line-height:56px}}
+
+/* Main menu, six groups (2026-10): fit the items on one line between 1025px and 1279px */
+@media (min-width: 1025px) and (max-width: 1279px) {
+    .main-navigation .main-nav > ul > li > a {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        font-size: 12px;
+    }
+    .main-navigation .main-nav > ul > li > a .dropdown-menu-toggle {
+        padding-left: 4px !important;
+        padding-right: 0 !important;
+    }
+    .site-header .site-logo .header-image {
+        width: 170px;
+        height: auto;
+    }
+}
+
+/* Slideout menu: the current page and its group stay visible on the navy panel */
+.slideout-navigation .main-nav ul li[class*="current-menu-"] > a {
+    color: var(--global-color-8) !important;
+}
