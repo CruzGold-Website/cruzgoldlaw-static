@@ -19,7 +19,7 @@
 /adjustment-of-status-lawyer.html                        /adjustment-of-status-lawyer/                        301
 /app-privacy-policy.html                                 /app-privacy-policy/                                 301
 /blog.html                                               /blog/                                               301
-/category-blog.html                                      /category-blog/                                      301
+/category-blog.html                                      /blog/                                               301
 /category-blog-page-2.html                               /category-blog-page-2/                               301
 /category-blog-page-3.html                               /category-blog-page-3/                               301
 /client-testimonials.html                                /client-testimonials/                                301
@@ -88,7 +88,7 @@
 /adjustment-of-status-lawyer                             /adjustment-of-status-lawyer/                        301
 /app-privacy-policy                                      /app-privacy-policy/                                 301
 /blog                                                    /blog/                                               301
-/category-blog                                           /category-blog/                                      301
+/category-blog                                           /blog/                                               301
 /client-testimonials                                     /client-testimonials/                                301
 /contact                                                 /contact/                                            301
 /immigration-law                                         /immigration-law/                                    301
@@ -137,3 +137,4 @@
 /testimonial-paul-maxon/                                 /client-testimonials/                                301
 /testimonial-jenny-bock/                                 /client-testimonials/                                301
 /testimonial/*                                           /client-testimonials/                                301
+/category-blog/                                          /blog/                                               301
