@@ -328,3 +328,7 @@ li#menu-item-3150,li#menu-item-3150 > a,li.menu-item-3150,li.menu-item-3150 > a,
 .cg-guide-body table{width:100%;border-collapse:collapse;margin:16px 0 24px}
 .cg-guide-body th,.cg-guide-body td{border:1px solid #e6dfd2;padding:10px 12px;text-align:left;vertical-align:top}
 @media (max-width:767px){.cg-guide-body{padding:28px 16px 48px}.cg-guide-body h2{font-size:30px}.cg-guide-body h3{font-size:21px}}
+
+/* footer map in the last column, 2026-10-02 */
+.cg-footer-map iframe{display:block;width:100%;height:220px;border-radius:8px}
+@media (min-width:1025px){.gb-element-d7c3eab6>.cg-footer-map{flex:0 0 300px;margin-left:auto}}
