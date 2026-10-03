@@ -1,3 +1,5 @@
+/* Cached for 7 days. After any change to this file run: node .build-sources/bump-asset-version.mjs css/suntyp-slider.css
+   (gives it a new ?v= on every page that links it; see README.md). */
 /* Slider Styling */
 .slider {
     background: white;

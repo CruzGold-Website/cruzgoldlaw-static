@@ -1,3 +1,5 @@
+/* Cached for 7 days. After any change to this file run: node .build-sources/bump-asset-version.mjs js/form-handler.js
+   (gives it a new ?v= on every page that links it; see README.md). */
 /* Form Handler — Routes submissions to CG Law Clients CRM via Cloudflare Worker
  *
  * Replaces the old Zapier webhook routing. Zero HTML changes required —

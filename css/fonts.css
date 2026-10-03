@@ -1,3 +1,5 @@
+/* Cached for 7 days. After any change to this file run: node .build-sources/bump-asset-version.mjs css/fonts.css
+   (gives it a new ?v= on every page that links it; see README.md). */
 :root {
 --gp-font--radley: "Radley";
 --gp-font--jost: "Jost";
@@ -12,147 +14,147 @@
 }
 
 @font-face {
-	font-display: auto;
+	font-display: swap;
 	font-family: "Radley";
 	font-style: normal;
 	font-weight: 400;
 	src: url('../fonts/LYjDdGzinEIjCN1NpwNF.woff2') format('woff2');
 }
 @font-face {
-	font-display: auto;
+	font-display: swap;
 	font-family: "Radley";
 	font-style: italic;
 	font-weight: 400;
 	src: url('../fonts/LYjBdGzinEIjCN1NojNHjV8.woff2') format('woff2');
 }
 @font-face {
-	font-display: auto;
+	font-display: swap;
 	font-family: "Jost";
 	font-style: normal;
 	font-weight: 500;
 	src: url('../fonts/92zatBhPNqw73oTd4g.woff2') format('woff2');
 }
 @font-face {
-	font-display: auto;
+	font-display: swap;
 	font-family: "Jost";
 	font-style: normal;
 	font-weight: 600;
 	src: url('../fonts/92zatBhPNqw73oTd4g.woff2') format('woff2');
 }
 @font-face {
-	font-display: auto;
+	font-display: swap;
 	font-family: "Jost";
 	font-style: normal;
 	font-weight: 700;
 	src: url('../fonts/92zatBhPNqw73oTd4g.woff2') format('woff2');
 }
 @font-face {
-	font-display: auto;
+	font-display: swap;
 	font-family: "Jost";
 	font-style: normal;
 	font-weight: 900;
 	src: url('../fonts/92zatBhPNqw73oTd4g.woff2') format('woff2');
 }
 @font-face {
-	font-display: auto;
+	font-display: swap;
 	font-family: "Jost";
 	font-style: normal;
 	font-weight: 400;
 	src: url('../fonts/92zatBhPNqw73oTd4g.woff2') format('woff2');
 }
 @font-face {
-	font-display: auto;
+	font-display: swap;
 	font-family: "Jost";
 	font-style: italic;
 	font-weight: 400;
 	src: url('../fonts/92zUtBhPNqw73oHt4D4h.woff2') format('woff2');
 }
 @font-face {
-	font-display: auto;
+	font-display: swap;
 	font-family: "Jost";
 	font-style: italic;
 	font-weight: 500;
 	src: url('../fonts/92zUtBhPNqw73oHt4D4h.woff2') format('woff2');
 }
 @font-face {
-	font-display: auto;
+	font-display: swap;
 	font-family: "Jost";
 	font-style: italic;
 	font-weight: 600;
 	src: url('../fonts/92zUtBhPNqw73oHt4D4h.woff2') format('woff2');
 }
 @font-face {
-	font-display: auto;
+	font-display: swap;
 	font-family: "Jost";
 	font-style: italic;
 	font-weight: 700;
 	src: url('../fonts/92zUtBhPNqw73oHt4D4h.woff2') format('woff2');
 }
 @font-face {
-	font-display: auto;
+	font-display: swap;
 	font-family: "Jost";
 	font-style: italic;
 	font-weight: 800;
 	src: url('../fonts/92zUtBhPNqw73oHt4D4h.woff2') format('woff2');
 }
 @font-face {
-	font-display: auto;
+	font-display: swap;
 	font-family: "Jost";
 	font-style: italic;
 	font-weight: 900;
 	src: url('../fonts/92zUtBhPNqw73oHt4D4h.woff2') format('woff2');
 }
 @font-face {
-	font-display: auto;
+	font-display: swap;
 	font-family: "Mulish";
 	font-style: normal;
 	font-weight: 400;
 	src: url('../fonts/1Ptvg83HX_SGhgqk3wot.woff2') format('woff2');
 }
 @font-face {
-	font-display: auto;
+	font-display: swap;
 	font-family: "Mulish";
 	font-style: italic;
 	font-weight: 400;
 	src: url('../fonts/1Pttg83HX_SGhgqk2jovaqQ.woff2') format('woff2');
 }
 @font-face {
-	font-display: auto;
+	font-display: swap;
 	font-family: "Mulish";
 	font-style: normal;
 	font-weight: 600;
 	src: url('../fonts/1Ptvg83HX_SGhgqk3wot.woff2') format('woff2');
 }
 @font-face {
-	font-display: auto;
+	font-display: swap;
 	font-family: "Mulish";
 	font-style: italic;
 	font-weight: 600;
 	src: url('../fonts/1Pttg83HX_SGhgqk2jovaqQ.woff2') format('woff2');
 }
 @font-face {
-	font-display: auto;
+	font-display: swap;
 	font-family: "Montserrat";
 	font-style: normal;
 	font-weight: 400;
 	src: url('../fonts/JTUSjIg1_i6t8kCHKm459WlhyyTn89ddpQ.woff2') format('woff2');
 }
 @font-face {
-	font-display: auto;
+	font-display: swap;
 	font-family: "Montserrat";
 	font-style: normal;
 	font-weight: 600;
 	src: url('../fonts/JTUSjIg1_i6t8kCHKm459WlhyyTn89ddpQ.woff2') format('woff2');
 }
 @font-face {
-	font-display: auto;
+	font-display: swap;
 	font-family: "Montserrat";
 	font-style: italic;
 	font-weight: 400;
 	src: url('../fonts/JTUQjIg1_i6t8kCHKm459WxRyS7m0dJ9pQOi.woff2') format('woff2');
 }
 @font-face {
-	font-display: auto;
+	font-display: swap;
 	font-family: "Montserrat";
 	font-style: italic;
 	font-weight: 600;
@@ -219,96 +221,96 @@
 	font-family: "Zodiak";
 	font-style: normal;
 	font-weight: 900;
-	src: url('../fonts/Zodiak-BlackItalic.ttf') format('truetype');
+	src: url('../fonts/Zodiak-BlackItalic.woff2') format('woff2');
 }
 @font-face {
 	font-display: swap;
 	font-family: "Zodiak";
 	font-style: normal;
 	font-weight: 700;
-	src: url('../fonts/Zodiak-ExtraboldItalic.ttf') format('truetype');
+	src: url('../fonts/Zodiak-ExtraboldItalic.woff2') format('woff2');
 }
 @font-face {
 	font-display: swap;
 	font-family: "Zodiak";
 	font-style: normal;
 	font-weight: 300;
-	src: url('../fonts/Zodiak-LightItalic.ttf') format('truetype');
+	src: url('../fonts/Zodiak-LightItalic.woff2') format('woff2');
 }
 @font-face {
 	font-display: swap;
 	font-family: "Zodiak";
 	font-style: normal;
 	font-weight: 100;
-	src: url('../fonts/Zodiak-ThinItalic.ttf') format('truetype');
+	src: url('../fonts/Zodiak-ThinItalic.woff2') format('woff2');
 }
 @font-face {
 	font-display: swap;
 	font-family: "false";
 	font-style: italic;
 	font-weight: 540;
-	src: url('../fonts/Zodiak-BoldItalic.ttf') format('truetype');
+	src: url('../fonts/Zodiak-BoldItalic.woff2') format('woff2');
 }
 @font-face {
 	font-display: swap;
 	font-family: "false";
 	font-style: normal;
 	font-weight: 400;
-	src: url('../fonts/GeneralSans-Regular.ttf') format('truetype');
+	src: url('../fonts/GeneralSans-Regular.woff2') format('woff2');
 }
 @font-face {
 	font-display: swap;
 	font-family: "false";
 	font-style: normal;
 	font-weight: 700;
-	src: url('../fonts/GeneralSans-Bold.ttf') format('truetype');
+	src: url('../fonts/GeneralSans-Bold.woff2') format('woff2');
 }
 @font-face {
 	font-display: swap;
 	font-family: "false";
 	font-style: italic;
 	font-weight: 700;
-	src: url('../fonts/GeneralSans-BoldItalic.ttf') format('truetype');
+	src: url('../fonts/GeneralSans-BoldItalic.woff2') format('woff2');
 }
 @font-face {
 	font-display: swap;
 	font-family: "Zodiak Variable";
 	font-style: italic;
 	font-weight: 100 900;
-	src: url('../fonts/Zodiak-VariableItalic.ttf') format('truetype');
+	src: url('../fonts/Zodiak-VariableItalic.woff2') format('woff2');
 }
 @font-face {
-	font-display: auto;
+	font-display: swap;
 	font-family: "General Sans";
 	font-style: normal;
 	font-weight: 200;
-	src: url('../fonts/GeneralSans-ExtralightItalic.ttf') format('truetype');
+	src: url('../fonts/GeneralSans-ExtralightItalic.woff2') format('woff2');
 }
 @font-face {
-	font-display: auto;
+	font-display: swap;
 	font-family: "General Sans";
 	font-style: normal;
 	font-weight: 300;
-	src: url('../fonts/GeneralSans-LightItalic.ttf') format('truetype');
+	src: url('../fonts/GeneralSans-LightItalic.woff2') format('woff2');
 }
 @font-face {
-	font-display: auto;
+	font-display: swap;
 	font-family: "General Sans";
 	font-style: normal;
 	font-weight: 500;
-	src: url('../fonts/GeneralSans-MediumItalic.ttf') format('truetype');
+	src: url('../fonts/GeneralSans-MediumItalic.woff2') format('woff2');
 }
 @font-face {
-	font-display: auto;
+	font-display: swap;
 	font-family: "General Sans";
 	font-style: normal;
 	font-weight: 600;
-	src: url('../fonts/GeneralSans-SemiboldItalic.ttf') format('truetype');
+	src: url('../fonts/GeneralSans-SemiboldItalic.woff2') format('woff2');
 }
 @font-face {
-	font-display: auto;
+	font-display: swap;
 	font-family: "General Sans Variable";
 	font-style: italic;
 	font-weight: 200 700;
-	src: url('../fonts/GeneralSans-VariableItalic.ttf') format('truetype');
+	src: url('../fonts/GeneralSans-VariableItalic.woff2') format('woff2');
 }

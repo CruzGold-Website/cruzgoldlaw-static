@@ -1,3 +1,5 @@
+/* Cached for 7 days. After any change to this file run: node .build-sources/bump-asset-version.mjs css/custom-overrides.css
+   (gives it a new ?v= on every page that links it; see README.md). */
 /* === Site Customizer Overrides === */
 /* Colors reference theme variables from theme-inline.css:
    --global-color-7: #0c152c (navy)

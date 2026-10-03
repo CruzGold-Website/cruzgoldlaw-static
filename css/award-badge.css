@@ -1,3 +1,5 @@
+/* Cached for 7 days. After any change to this file run: node .build-sources/bump-asset-version.mjs css/award-badge.css
+   (gives it a new ?v= on every page that links it; see README.md). */
 .award-recognition {
   background-color: var(--global-color-11);
   border-bottom: 1px solid rgba(191, 153, 45, 0.28);
