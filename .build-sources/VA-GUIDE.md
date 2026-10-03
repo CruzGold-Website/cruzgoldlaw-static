@@ -51,6 +51,8 @@ cruzgoldlaw/
 
 **Rule of thumb:** New pages go through `_content/` + `build-page.mjs`. Text changes on existing pages = edit the `.html` file directly.
 
+**If a CSS or JS file ever has to change** (normally it does not): browsers keep these files for 7 days, so afterwards run `node .build-sources/bump-asset-version.mjs css/<file>.css`. It gives the file a new `?v=` on every page.
+
 ---
 
 ## Before You Start Anything — Always Pull First

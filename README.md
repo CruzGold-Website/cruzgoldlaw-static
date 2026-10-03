@@ -8,6 +8,21 @@ Production static site for **cruzgoldlaw.com**, deployed on Cloudflare Pages.
 
 ---
 
+## CSS and JS: a new `?v=` with every change
+
+Every page links its stylesheets and scripts with a version, for example `/css/custom-overrides.css?v=20261003`,
+and `_headers` lets browsers and the Cloudflare edge keep `/css/*` and `/js/*` for 7 days. **After changing any
+file in `css/` or `js/`, give it a new `?v=` on every page that links it, in the same commit:**
+
+```
+node .build-sources/bump-asset-version.mjs css/custom-overrides.css
+```
+
+It sets today's date as the version on every page and partial that links the file. Without a new version,
+visitors can see the old file for up to a week. A new page links the same `?v=` as the existing pages.
+
+---
+
 ## Repository Structure
 
 ```

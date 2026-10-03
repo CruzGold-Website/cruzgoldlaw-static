@@ -1,3 +1,5 @@
+/* Cached for 7 days. After any change to this file run: node .build-sources/bump-asset-version.mjs css/wpcode-snippets.css
+   (gives it a new ?v= on every page that links it; see README.md). */
 /* === wpcode CSS snippets === */
  /* Desktop fixed layout */
   .brand-section { max-width: 1200px; margin: 0 auto; padding: 24px; }

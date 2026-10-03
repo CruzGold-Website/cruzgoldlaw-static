@@ -171,6 +171,19 @@ Claude can write or improve any content on this site. Use it freely for:
 
 ---
 
+## Changing a CSS or JS File
+
+Browsers keep CSS and JS files for 7 days. After editing anything in `css/` or `js/`, run this from the repo root:
+
+```
+node .build-sources/bump-asset-version.mjs css/<file>.css
+```
+
+It gives the file a new `?v=` on every page that links it. Commit the file and the pages together. Without it,
+visitors can see the old version for up to a week.
+
+---
+
 ## Summary Checklist for Every Task
 
 Before pushing anything live:
@@ -179,6 +192,7 @@ Before pushing anything live:
 - [ ] Did you fill in all three required metadata fields (TITLE, DESCRIPTION, CANONICAL)?
 - [ ] Did you run `node build-page.mjs` and see a success message?
 - [ ] Did you preview the page by double-clicking the built `.html` file?
+- [ ] If you changed anything in `css/` or `js/`: did you run `node .build-sources/bump-asset-version.mjs` for it?
 - [ ] If you added a blog post — did you add the card to `blog.html`?
 - [ ] If you added a testimonial — did you add the card to `client-testimonials.html`?
 - [ ] Did you commit with a clear description of what you did?

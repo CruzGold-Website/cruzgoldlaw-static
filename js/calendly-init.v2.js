@@ -1,31 +1,37 @@
+/* Cached for 7 days. After any change to this file run: node .build-sources/bump-asset-version.mjs js/calendly-init.v2.js
+   (gives it a new ?v= on every page that links it; see README.md). */
 /**
  * Calendly inline-embed helper for cruzgoldlaw.com
  *
- * The embed divs themselves carry `data-url` (Calendly's canonical pattern) so
- * widget.js auto-initialises every `.calendly-inline-widget[data-url]` it
- * finds at load time. We do NOT call `Calendly.initInlineWidget()` from here —
- * that would race the async-loaded widget.js (which may not have populated
- * `window.Calendly` by the time this defer-script runs).
+ * Loading (since 2026-10-03, speed PR): pages no longer put Calendly's widget.js and
+ * widget.css in <head>. This script requests them after the window `load` event, once an
+ * embed is within 600px of the screen. The booking iframe pulls several MB (Calendly app,
+ * Stripe, reCAPTCHA, analytics) that used to compete with the page's own first render.
+ * widget.js then auto-initialises every `.calendly-inline-widget[data-url]` as before, so
+ * data-url (utm_source) and data-source are read exactly as they were.
+ * A page that still loads widget.js in its own <head> (the ad landing pages) keeps the old
+ * behaviour: nothing is injected, only the fallback timers are armed.
  *
- * What this script DOES handle:
+ * What this script also handles:
  *
  *   1. GA4 `book_consultation` event: fires when Calendly emits a
  *      `calendly.event_scheduled` postMessage from inside the booking iframe.
  *
  *   2. Soft fallback CTA: if the widget hasn't rendered an <iframe> within
- *      15s (e.g. corporate firewall blocks assets.calendly.com, or client
- *      lost connectivity mid-load), replace the empty embed shell with a
- *      phone/email/new-tab fallback so visitors can still convert.
- *
- *      15s is intentionally permissive — Calendly's widget.js is async, the
- *      iframe contents come from a third-party origin with its own CDN, and
- *      slow mobile networks regularly take 8-10s to first paint.
+ *      15s of widget.js being requested (e.g. corporate firewall blocks
+ *      assets.calendly.com, or the client lost connectivity mid-load), replace
+ *      the empty embed shell with a phone/email/new-tab fallback so visitors
+ *      can still convert.
  *
  * Loaded with `defer` so it runs after the DOM is parsed but doesn't block.
  */
 (function () {
   'use strict';
 
+  var WIDGET_JS = 'https://assets.calendly.com/assets/external/widget.js';
+  var WIDGET_CSS = 'https://assets.calendly.com/assets/external/widget.css';
+  var LAZY_MARGIN = '600px 0px';
+  var LOAD_EVENT_MAX_WAIT_MS = 5000;
   var FALLBACK_PHONE = '(609) 924-8500';
   var FALLBACK_PHONE_HREF = 'tel:+16099248500';
   var FALLBACK_EMAIL = 'info@cruzgoldlaw.com';
@@ -58,6 +64,45 @@
     }
   }
 
+  var requested = false;
+  function loadCalendly() {
+    if (requested) return;
+    requested = true;
+    var css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = WIDGET_CSS;
+    document.head.appendChild(css);
+    var js = document.createElement('script');
+    js.src = WIDGET_JS;
+    js.async = true;
+    document.head.appendChild(js);
+    armFallbackTimers();
+  }
+
+  function loadWhenNear(widgets) {
+    if (!('IntersectionObserver' in window)) { loadCalendly(); return; }
+    var io = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].isIntersecting) { io.disconnect(); loadCalendly(); return; }
+      }
+    }, { rootMargin: LAZY_MARGIN });
+    for (var i = 0; i < widgets.length; i++) io.observe(widgets[i]);
+  }
+
+  function init() {
+    var widgets = document.querySelectorAll('.calendly-inline-widget');
+    if (!widgets.length) return;
+    if (document.querySelector('script[src*="assets.calendly.com/assets/external/widget.js"]')) {
+      armFallbackTimers(); // the page loads widget.js itself
+      return;
+    }
+    var started = false;
+    function start() { if (!started) { started = true; loadWhenNear(widgets); } }
+    if (document.readyState === 'complete') { start(); return; }
+    window.addEventListener('load', start);
+    setTimeout(start, LOAD_EVENT_MAX_WAIT_MS); // a slow image must not hold the booking form back
+  }
+
   // GA4 booking event — fires once when Calendly emits a booking-completed message
   function trackBookingComplete(e) {
     if (!e || !e.data) return;
@@ -76,9 +121,9 @@
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', armFallbackTimers);
+    document.addEventListener('DOMContentLoaded', init);
   } else {
-    armFallbackTimers();
+    init();
   }
   window.addEventListener('message', trackBookingComplete);
 })();

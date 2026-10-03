@@ -1,3 +1,5 @@
+/* Cached for 7 days. After any change to this file run: node .build-sources/bump-asset-version.mjs css/core-block-supports.css
+   (gives it a new ?v= on every page that links it; see README.md). */
 /* === core-block-supports variant 1 (1 pages) === */
 .wp-elements-6408bf2bdf81f827543ffe37a730cb66 a:where(:not(.wp-element-button)){color:var(--wp--preset--color--global-color-9);}
 /*# sourceURL=core-block-supports-inline-css */
