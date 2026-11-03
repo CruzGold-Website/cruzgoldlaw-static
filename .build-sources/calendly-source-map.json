@@ -36,6 +36,7 @@
     "eb-5-visa-lawyer": "ewing",
     "student-visa-lawyer-new-jersey": "ewing",
     "work-visa-lawyer-new-jersey": "ewing",
+    "visa-lawyer": "ewing",
   },
   "patterns": [
     { "match": "houston", "value": "houston" },
