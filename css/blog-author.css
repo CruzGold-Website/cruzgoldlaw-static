@@ -1,0 +1,50 @@
+/* Cached for 7 days. After any change to this file run: node .build-sources/bump-asset-version.mjs css/blog-author.css
+   (gives it a new ?v= on every page that links it; see README.md). */
+/* Blog posts: shorter hero with the author line under the title, and a short
+   author bio at the end of the article (2026-11-12). Linked only from blog posts;
+   copy both blocks from an existing post when adding a new one (see SOP.md). */
+
+/* Hero: the 650px cover left a large empty band under the title. The header sits
+   on top of the cover (position:absolute), so the top padding keeps the title
+   clear of the logo and menu. */
+.wp-block-cover.cg-post-hero{min-height:0;padding:200px 24px 24px}
+@media (max-width:1024px){.wp-block-cover.cg-post-hero{padding:160px 24px 24px}}
+@media (max-width:768px){.wp-block-cover.cg-post-hero{padding:100px 16px 8px}}
+
+/* Author line under the H1 */
+.cg-byline{display:flex;align-items:center;justify-content:center;gap:14px;margin:28px auto 0;text-align:left}
+.cg-byline__photo{display:block;flex:0 0 56px;width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid var(--global-color-8,#bf992d)}
+.cg-byline__text{margin:0;font-family:var(--gp-font--mulish),sans-serif;font-size:17px;line-height:1.45;color:var(--global-color-7,#0c152c)}
+.cg-byline__text a{color:var(--global-color-7,#0c152c);font-weight:700;text-decoration:underline;text-decoration-color:var(--global-color-8,#bf992d);text-decoration-thickness:2px;text-underline-offset:4px}
+.cg-byline__text a:hover{color:var(--cg-gold-text,#866a19)}
+.cg-byline__role{display:block;font-size:15px;color:#3a3a3a}
+.cg-byline a:focus-visible{outline:2px solid var(--cg-gold-text,#866a19);outline-offset:3px}
+@media (max-width:768px){
+  .cg-byline{gap:12px;margin-top:20px}
+  .cg-byline__photo{flex-basis:48px;width:48px;height:48px}
+  .cg-byline__text{font-size:16px}
+  .cg-byline__role{font-size:14px}
+}
+
+/* Author bio at the end of the article. Photo left of the text on desktop; on
+   phones the photo sits beside the name and the text runs the full width. */
+.cg-author-bio{display:grid;grid-template-columns:88px minmax(0,1fr);grid-template-areas:"photo head" "photo body";column-gap:22px;align-items:start;margin:48px 0 8px;padding:28px 0 0;border-top:1px solid #e6dfd2;text-align:left}
+.cg-author-bio__photo{grid-area:photo;display:block;width:88px;height:88px}
+.cg-author-bio__photo img{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover;border:2px solid var(--global-color-8,#bf992d)}
+.cg-author-bio__head{grid-area:head;min-width:0;margin-bottom:8px}
+.cg-author-bio__body{grid-area:body;min-width:0}
+.cg-author-bio p{margin:0}
+.cg-author-bio .cg-author-bio__eyebrow{font-family:var(--gp-font--mulish),sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;line-height:1.4;text-transform:uppercase;color:var(--cg-gold-text,#866a19);margin-bottom:4px}
+.cg-author-bio .cg-author-bio__name{font-family:var(--gp-font--radley),serif;font-size:28px;line-height:1.2;color:var(--global-color-7,#0c152c)}
+main .cg-author-bio p a.cg-author-bio__name-link{color:inherit;text-decoration:none}
+main .cg-author-bio p a.cg-author-bio__name-link:hover{color:var(--cg-gold-text,#866a19)}
+.cg-author-bio .cg-author-bio__text{font-size:16px;line-height:1.65;color:var(--global-color-9,#3a3a3a);margin-bottom:4px}
+.cg-author-bio__link{display:inline-flex;align-items:center;min-height:44px;font-size:15px;font-weight:700;color:var(--cg-gold-text,#866a19);text-decoration:underline;text-underline-offset:4px}
+.cg-author-bio a:focus-visible{outline:2px solid var(--cg-gold-text,#866a19);outline-offset:3px}
+@media (max-width:600px){
+  .cg-author-bio{grid-template-columns:60px minmax(0,1fr);grid-template-areas:"photo head" "body body";column-gap:14px;align-items:center}
+  .cg-author-bio__photo{width:60px;height:60px}
+  .cg-author-bio__head{margin-bottom:0}
+  .cg-author-bio__body{margin-top:14px}
+  .cg-author-bio .cg-author-bio__name{font-size:24px}
+}
