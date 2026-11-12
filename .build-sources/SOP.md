@@ -25,6 +25,7 @@ Before doing anything in this document, make sure you have completed the one-tim
 9. Build the page: `node build-page.mjs _content/how-to-renew-your-green-card.html`
 10. Preview: double-click the new `how-to-renew-your-green-card.html` file that appears in the project root — it opens in your browser
 11. Check that the header, content, and footer all look correct
+    - Blog posts written by Zachary Gold carry an author line under the title (`cg-byline`) and an "About the author" block at the end of the article (`cg-author-bio`). Copy both, the `/css/blog-author.css` link in the head, and the hero class `cg-post-hero` (no `min-height` on the cover) from an existing post such as `o1-visa-requirements/index.html`. Only use them on posts Zachary is credited with.
 12. Add a card for the post to `blog.html` — see `VA-GUIDE.md` for the exact copy-paste HTML block
 13. Publish:
     ```
