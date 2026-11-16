@@ -5,7 +5,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from parts import *
 
 repo = sys.argv[1]
-V = "20261117b"
+V = "20261117d"
 src = open(os.path.join(repo, "index.html"), encoding="utf8").read()
 if "cg-home.css" in src:
     sys.exit("index.html is already the redesign; build from git show master:index.html")
@@ -64,7 +64,7 @@ offices = "".join(
 
 callus = "".join(f'<li><a href="tel:{t}"><span>{c}<span class="cityph">{full[len(c):]}</span></span> <strong>{n}</strong></a></li>' for c, full, t, n in PHONES)
 
-body = f'''<body class="cg-site">
+body = f'''<body class="cg-site home">
 <div class="cg">
 {header()}
 <main id="main">

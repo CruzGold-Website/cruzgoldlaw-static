@@ -67,7 +67,7 @@
 .slide3{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 48px) / 3);gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;align-items:start;overscroll-behavior-x:contain}
 .slide3::-webkit-scrollbar{display:none}
 .slide3 > *{scroll-snap-align:start;margin:0}
-@media (max-width:700px){.slide3{grid-auto-columns:minmax(0,100%)}}
+@media (max-width:700px){.slide3{grid-auto-columns:100%}}
 
 /* page hero, template 07 (service) and others */
 .p-hero{background:#F8F2EB;position:relative;overflow:hidden}
@@ -279,7 +279,7 @@
 .l-meet-g > span{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;line-height:1.5}
 .l-meet-g svg{flex:none}
 .l-meet-g strong{color:#fff;display:block;font-size:16px}
-@media (max-width:700px){.l-office{grid-template-columns:minmax(0,1fr);margin:-60px 12px 0}.l-meet{margin:-60px 12px 0}}
+
 .l-why{padding:112px 0}
 .l-why .split{align-items:start}
 .l-why-l{display:flex;flex-direction:column;gap:22px}
@@ -510,7 +510,7 @@
 .t-bar span{font-size:14.5px;color:#5b6070}
 .review.marta{background:#F8F2EB;border-color:#ead9b6}
 .review.marta .eyebrow{display:block;margin-bottom:10px}
-@media (max-width:700px){.t-feat .wrap{grid-template-columns:minmax(0,1fr);gap:20px}.t-feat blockquote{font-size:26px}}
+
 
 /* ---- text page (13) ---- */
 .x-head .wrap{padding-top:64px;padding-bottom:56px;display:flex;flex-direction:column;gap:16px}

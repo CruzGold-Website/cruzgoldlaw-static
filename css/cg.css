@@ -157,6 +157,8 @@ html.menu-open{overflow:hidden}
 .foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
 .foot-bot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);font-size:13.5px}
 .foot-ph{display:none}
+.cg-inner .foot{padding:88px 0 36px}
+.cg-inner .foot-bot{margin-top:64px;padding-top:28px}
 
 /* ---- sticky call/book bar, phones only (template 02) ---- */
 .callbar{display:none}
@@ -170,26 +172,27 @@ html.menu-open{overflow:hidden}
 .hdr{padding:10px 12px 10px 20px}
 html.menu-open .ubar-call{display:none}
 /* footer, phone */
-.foot{padding:44px 20px 120px;font-size:14.5px;line-height:1.7}
-.foot .wrap{padding:0}
-.footgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}
-.foot-brand{grid-column:1 / -1;gap:0}
-.foot-logo{width:170px;margin-bottom:18px}
-.foot-about,.foot .eyebrow,.foot-hide-ph{display:none}
-.foot-contact{margin:0 0 18px;line-height:1.7}
-.foot-contact br{display:none}
-.foot-dot{display:inline}
-.foot-contact a:not(.foot-tel){color:#c9cfdc}
-.foot ul{gap:6px}
-.foot li a{display:block;min-height:32px}
-.foot-col-p{grid-row:2 / 4}
-.foot-col-l{grid-column:2}
-.foot-col-f{grid-column:2;margin-top:6px}
-.foot-bot{margin-top:22px;padding-top:0;border-top:0;font-size:12.5px;color:#8a93a8}
-.foot-bot .foot-hide-ph{display:none}
-.foot-ph{display:inline}
-.foot-bot a{color:#8a93a8}
+.home .foot{padding:44px 20px 120px;font-size:14.5px;line-height:1.7}
+.home .foot .wrap{padding:0}
+.home .footgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 16px}
+.home .foot-brand{grid-column:1 / -1;gap:0}
+.home .foot-logo{width:170px;margin-bottom:18px}
+.home .foot-about,.home .foot .eyebrow,.home .foot-hide-ph{display:none}
+.home .foot-contact{margin:0 0 18px;line-height:1.7}
+.home .foot-contact br{display:none}
+.home .foot-dot{display:inline}
+.home .foot-contact a:not(.foot-tel){color:#c9cfdc}
+.home .foot ul{gap:6px}
+.home .foot li a{display:block;min-height:32px}
+.home .foot-col-p{grid-row:2 / 4}
+.home .foot-col-l{grid-column:2}
+.home .foot-col-f{grid-column:2;margin-top:6px}
+.home .foot-bot{margin-top:22px;padding-top:0;border-top:0;font-size:12.5px;color:#8a93a8}
+.home .foot-bot .foot-hide-ph{display:none}
+.home .foot-ph{display:inline}
+.home .foot-bot a{color:#8a93a8}
 /* sticky bar */
+.cg-inner{padding-bottom:72px}
 .callbar{display:grid;position:fixed;left:0;right:0;bottom:0;height:72px;background:rgba(252,250,246,.97);border-top:1px solid #e3d9c8;box-shadow:0 -12px 28px -16px rgba(12,21,44,.35);grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:10px;padding:10px 14px;z-index:30}
 .callbar .btn{min-height:52px;font-size:15.5px;padding:0 20px;display:flex}
 .callbar .btn-line{gap:8px}

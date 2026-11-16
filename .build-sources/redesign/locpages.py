@@ -546,7 +546,7 @@ def build_text(slug):
     parts, toc = legal_inner(p)
     date = ""
     for b in p.blocks[:5]:
-        if b.name == "p" and re.match(r"^(Last updated|Effective|Updated)", txt(b)):
+        if b.name == "p" and re.match(r"^(Last updated|Effective|Updated)", txt(b), re.I):
             date = inner(b)
             parts = [x for x in parts if x != f"<p>{date}</p>"]
             break

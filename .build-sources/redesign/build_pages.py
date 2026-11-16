@@ -7,7 +7,7 @@ from extract import Page, txt, _cls, head_of, meta_fingerprint, REPO, live_html
 from blocks import *
 from parts import header, footer, CAL, PHONE, GOOGLE, STAR, stars, PHONES, PLUS, MINUS, ARROW
 
-V = "20261117b"
+V = "20261117d"
 IMG = "/images/redesign/"
 CALENDLY_PARAMS = "primary_color=bf992d&amp;text_color=0c152c"
 
@@ -440,7 +440,7 @@ def page_html(p, inner_html, css=("cg.css", "cg-pages.css"), extra_css=()):
         head = head.replace("<!-- Google tag (gtag.js)", pre + links + "<!-- Google tag (gtag.js)", 1)
     else:
         head = head.rstrip() + "\n" + pre + links
-    body_cls = 'class="cg-site"'
+    body_cls = 'class="cg-site cg-inner"'
     return (head + "</head>\n<body " + body_cls + ">\n<div class=\"cg\">\n" + header(book="#book" if p.cal_url else "/contact/") +
             "\n<main id=\"main\">\n" + inner_html + "\n</main>\n" + footer(book="#book" if p.cal_url else "/contact/") + "\n</div>\n" +
             f'<script src="/js/cg.js?v={V}" defer></script>\n</body>\n</html>\n')
