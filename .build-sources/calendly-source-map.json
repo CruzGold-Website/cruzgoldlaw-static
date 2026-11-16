@@ -25,6 +25,7 @@
     "eb-1-visa-lawyer": "ewing",
     "k1-visa-lawyer": "ewing",
     "eb2-niw-lawyer": "ewing",
+    "immigration-lawyer-cost": "ewing",
     "h1b-visa-lawyer": "ewing",
     "immigration-lawyer-new-jersey": "ewing",
     "deportation-defense-lawyer": "ewing",
@@ -39,7 +40,7 @@
     "eb-5-visa-lawyer": "ewing",
     "student-visa-lawyer-new-jersey": "ewing",
     "work-visa-lawyer-new-jersey": "ewing",
-    "visa-lawyer": "ewing",
+    "visa-lawyer": "ewing"
   },
   "patterns": [
     { "match": "houston", "value": "houston" },
