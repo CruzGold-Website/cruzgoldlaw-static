@@ -349,3 +349,5 @@
 .h-zq blockquote::after{content:"\201D"}
 .foot-contact a:not(.foot-tel){text-decoration:underline}
 }
+.calendly-inline-widget{min-height:690px}
+@media (max-width:700px){.calendly-inline-widget{min-height:880px}}

@@ -592,3 +592,6 @@
 .svc-aside{display:flex}
 .tbl .tv{font-size:19px;color:#0c152c;font-weight:400}
 .tbl td:has(.tv) + td{white-space:nowrap}
+/* Calendly auto-resize can report a near-zero height in the dark booking block; never let the box collapse */
+.calendly-inline-widget{min-height:690px}
+@media (max-width:700px){.calendly-inline-widget{min-height:880px}}
