@@ -34,7 +34,7 @@ MENU = [
                  ("K-1 fiancé(e) visa", "/k1-visa-lawyer/", "A wedding in the United States")]),
      ("Green card and citizenship", [("Adjustment of status", "/adjustment-of-status-lawyer/", "Applying from inside the U.S."),
                                      ("Citizenship &amp; naturalization", "/citizenship-lawyer/", "Form N-400 and the interview")]),
-     ("Start here", [("N-400 processing time", "/n400-processing-time/", "Newark, Philadelphia and Houston"),
+     ("Start here", [("N-400 processing time", "/n400-processing-time/", "N-400 waits for Newark, Philadelphia and Houston"),
                      ("I-751 evidence checklist", "/i-751-evidence-checklist/", "Removing conditions on a green card")])],
      ("One firm from your petition to your oath", "When you qualify, we prepare your citizenship application and get you ready for the interview.", "family-hug", "50% 35%")),
   ("greencards", "Green Cards", [
