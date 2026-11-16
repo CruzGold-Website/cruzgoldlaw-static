@@ -15,17 +15,28 @@ PHONES = [("Ewing", "Ewing, NJ", "+16099248500", "(609) 924-8500"),
           ("Philadelphia", "Philadelphia, PA", "+12156082131", "(215) 608-2131"),
           ("Houston", "Houston, TX", "+18329247490", "(832) 924-7490")]
 
-# Menu. Green Cards follows template 03/04 exactly. The other groups have no design yet:
-# same panel, live menu links, no descriptions or photo card (flagged for Danilo).
+# Menu. Green Cards follows template 03/04. The other five groups use the same panel (user's call, 2026-11-17):
+# three columns with a short line under each link, taken from the facts on that page, and a photo card.
+# "Green card after asylum" is left out until a page covers it.
 MENU = [
   ("locations", "Locations", [
-     ("Locations", [("New Jersey", "/immigration-lawyer-new-jersey/", ""), ("Philadelphia", "/immigration-lawyer-philadelphia/", ""),
-                    ("Houston", "/immigration-lawyer-houston/", ""), ("Newark", "/immigration-lawyer-newark-nj/", ""),
-                    ("Jersey City", "/dedicated-immigration-lawyer-in-jersey-city/", ""), ("Elizabeth", "/compassionate-immigration-lawyer-elizabeth-nj/", "")])], None),
+     ("Our offices", [("New Jersey", "/immigration-lawyer-new-jersey/", "Ewing, just off I-295"),
+                      ("Philadelphia", "/immigration-lawyer-philadelphia/", "123 S Broad Street"),
+                      ("Houston", "/immigration-lawyer-houston/", "2808 Caroline Street")]),
+     ("Cities we serve", [("Newark", "/immigration-lawyer-newark-nj/", "USCIS and court at 970 Broad Street"),
+                          ("Jersey City", "/dedicated-immigration-lawyer-in-jersey-city/", "By video or at our Ewing office"),
+                          ("Elizabeth", "/compassionate-immigration-lawyer-elizabeth-nj/", "By video or at our Ewing office")]),
+     ("Start here", [("Contact us", "/contact/", "Four offices, one free consultation")])],
+     ("Every office books the same consultation", "A free consultation with attorney Zachary Gold, in English or Spanish.", "grandparents", "50% 30%")),
   ("family", "Family &amp; Citizenship", [
-     ("Family &amp; Citizenship", [("Family-based immigration", "/family-immigration-lawyer/", ""), ("Marriage green card", "/marriage-green-card-lawyer/", ""),
-                    ("K-1 fiancé(e) visa", "/k1-visa-lawyer/", ""), ("Adjustment of status", "/adjustment-of-status-lawyer/", ""),
-                    ("Citizenship &amp; naturalization", "/citizenship-lawyer/", "")])], None),
+     ("Family", [("Family-based immigration", "/family-immigration-lawyer/", "Parents, children and siblings"),
+                 ("Marriage green card", "/marriage-green-card-lawyer/", "Spouses of citizens and residents"),
+                 ("K-1 fiancé(e) visa", "/k1-visa-lawyer/", "A wedding in the United States")]),
+     ("Green card and citizenship", [("Adjustment of status", "/adjustment-of-status-lawyer/", "Applying from inside the U.S."),
+                                     ("Citizenship &amp; naturalization", "/citizenship-lawyer/", "Form N-400 and the interview")]),
+     ("Start here", [("N-400 processing time", "/n400-processing-time/", "Newark, Philadelphia and Houston"),
+                     ("I-751 evidence checklist", "/i-751-evidence-checklist/", "Removing conditions on a green card")])],
+     ("One firm from your petition to your oath", "When you qualify, we prepare your citizenship application and get you ready for the interview.", "family-hug", "50% 35%")),
   ("greencards", "Green Cards", [
      ("Through family", [("Marriage green card", "/marriage-green-card-lawyer/", "Spouses of citizens and residents"),
                          ("Family-based immigration", "/family-immigration-lawyer/", "Parents, children and siblings"),
@@ -35,39 +46,50 @@ MENU = [
                        ("EB-3 and PERM", "/eb-3-visa-lawyer/", "Employer-sponsored"),
                        ("EB-5 investor", "/eb-5-visa-lawyer/", "Through an investment")]),
      ("Start here", [("All green card routes", "/green-card-lawyer/", "Which one fits you"),
-                     ("What a green card costs", "/green-card-lawyer/#how-much-does-a-green-card-cost", "USCIS fees and our fees"),
-                     ("Green card after asylum", "/asylum-lawyer/", "One year after the grant")])],
-     ("Not sure which route is yours?", "Zachary Gold looks at how you entered and finds the route before you file.")),
+                     ("What a green card costs", "/green-card-lawyer/#how-much-does-a-green-card-cost", "USCIS fees and our fees")])],
+     ("Not sure which route is yours?", "Zachary Gold looks at how you entered and finds the route before you file.", "couple-hug", "60% 35%")),
   ("visas", "Visas", [
-     ("Visas", [("All visas", "/visa-lawyer/", ""), ("All work visas", "/work-visa-lawyer-new-jersey/", ""), ("H-1B", "/h1b-visa-lawyer/", ""),
-                ("O-1", "/o1-visa-lawyer/", ""), ("L-1", "/trusted-l-1-visa-lawyer/", ""),
-                ("E-2 investor", "/e-2-visa-lawyer-for-investors-entrepreneurs/", ""), ("TN (Canada and Mexico)", "/tn-visa-lawyer/", ""),
-                ("Student visas", "/student-visa-lawyer-new-jersey/", "")])], None),
+     ("Start here", [("All visas", "/visa-lawyer/", "Which visa fits your plans"),
+                     ("All work visas", "/work-visa-lawyer-new-jersey/", "Temporary work visas")]),
+     ("Work visas", [("H-1B", "/h1b-visa-lawyer/", "Specialty occupations"),
+                     ("O-1", "/o1-visa-lawyer/", "Extraordinary ability"),
+                     ("L-1", "/trusted-l-1-visa-lawyer/", "Transfers within a company"),
+                     ("TN (Canada and Mexico)", "/tn-visa-lawyer/", "Canadian and Mexican professionals")]),
+     ("Investors and students", [("E-2 investor", "/e-2-visa-lawyer-for-investors-entrepreneurs/", "Treaty investors"),
+                                 ("Student visas", "/student-visa-lawyer-new-jersey/", "F-1, M-1 and J-1")])],
+     ("Need a U.S. visa?", "Start with the one that fits your plans, and learn who has to file for it.", "professional", "50% 25%")),
   ("deportation", "Deportation &amp; Asylum", [
-     ("Deportation &amp; Asylum", [("Deportation defense", "/deportation-defense-lawyer/", ""), ("Asylum", "/asylum-lawyer/", ""),
-                    ("Criminal immigration", "/criminal-immigration-lawyer/", ""), ("VAWA", "/vawa-lawyer/", "")])], None),
+     ("In immigration court", [("Deportation defense", "/deportation-defense-lawyer/", "After a Notice to Appear"),
+                               ("Asylum", "/asylum-lawyer/", "Afraid to return to your country")]),
+     ("Related cases", [("Criminal immigration", "/criminal-immigration-lawyer/", "A charge or conviction"),
+                        ("VAWA", "/vawa-lawyer/", "A green card without your abuser")]),
+     ("Start here", [("Fees for court cases", "/immigration-lawyer-cost/", "Court cases are billed by the hour")])],
+     ("Received a Notice to Appear?", "Call as soon as the notice arrives, and have it in front of you when we talk.", "parents-embrace", "50% 30%")),
   ("about", "About", [
-     ("About", [("About us", "/about/", ""), ("Client testimonials", "/client-testimonials/", ""), ("Fees", "/immigration-lawyer-cost/", ""),
-                ("Blog", "/blog/", ""), ("Contact us", "/contact/", "")])], None),
+     ("The firm", [("About us", "/about/", "A family firm since 1995"),
+                   ("Client testimonials", "/client-testimonials/", "In our clients' own words"),
+                   ("Fees", "/immigration-lawyer-cost/", "A fee you hear before you decide")]),
+     ("Read", [("Blog", "/blog/", "Guides and articles")]),
+     ("Get in touch", [("Contact us", "/contact/", "Four offices, one free consultation")])],
+     ("You speak with Zachary Gold", "The attorney who owns the firm takes your first consultation.", "beach-flag", "50% 40%")),
 ]
 # phone menu shows Green Cards' "Start here" group first (template 04)
 PHONE_ORDER = {"greencards": [2, 0, 1]}
-# template 04 leaves this link out of the phone menu
-PHONE_SKIP = {"Green card after asylum"}
+PHONE_SKIP = set()
 
 
 def mega_panel(key, cols, card, book):
     out = []
     for title, links in cols:
         # long single lists split into columns of at most 4
-        chunks = [links[i:i + 4] for i in range(0, len(links), 4)] if not card else [links]
+        chunks = [links]
         for n, chunk in enumerate(chunks):
             lis = "".join(
                 f'<li><a href="{h}"><strong>{t}</strong>' + (f'<span>{d}</span>' if d else '') + '</a></li>' for t, h, d in chunk)
             head = f'<p class="eyebrow">{title}</p>' if n == 0 else '<p class="eyebrow" aria-hidden="true">&nbsp;</p>'
             out.append(f'<div>{head}<ul>{lis}</ul></div>')
     if card:
-        out.append(f'<a class="mega-card" href="{book}"><img src="/images/redesign/couple-hug.webp" alt="" width="1600" height="1066" loading="lazy">'
+        out.append(f'<a class="mega-card" href="{book}"><img src="/images/redesign/{card[2]}.webp" alt="" width="1200" height="800" loading="lazy" style="object-position:{card[3]}">'
                    f'<span class="mega-card-shade"></span><span class="mega-card-txt"><span class="serif mega-card-t">{card[0]}</span>'
                    f'<span class="mega-card-p">{card[1]}</span><span class="btn btn-gold">Book a free consultation</span></span></a>')
     return f'<div class="mega" id="mega-{key}" hidden><div class="wrap mega-in">{"".join(out)}</div></div>'
