@@ -197,3 +197,13 @@ html.menu-open .ubar-call{display:none}
 .callbar .btn{min-height:52px;font-size:15.5px;padding:0 20px;display:flex}
 .callbar .btn-line{gap:8px}
 }
+
+/* touch targets of at least 44 px (build notes) without changing the drawn layout: the tap area of small
+   standalone links is extended with an invisible box centred on the link */
+@media (max-width:1100px){
+.foot li a,.foot-contact a,.foot-bot a,.crumb a,.ubar a,.toc-box a,.toc-phone a,.x-toc a,.h-rating,.h-rbox a,.h-off-l a,.off4 a,
+.c-call-o a,.c-row a,.c-off a,.s-body a,.l-office-t a,.c-call > a,.stats .k a,.mnav-phones a,.callbar a{position:relative}
+.foot li a::after,.foot-contact a::after,.foot-bot a::after,.crumb a::after,.ubar a::after,.toc-box a::after,.toc-phone a::after,.x-toc a::after,
+.h-rating::after,.h-rbox a::after,.h-off-l a::after,.off4 a::after,.c-call-o a::after,.c-row a::after,.c-off a::after,.s-body a::after,
+.l-office-t a::after,.c-call > a::after,.stats .k a::after,.mnav-phones a::after{content:"";position:absolute;left:50%;top:50%;width:max(100%,44px);height:max(100%,44px);transform:translate(-50%,-50%)}
+}

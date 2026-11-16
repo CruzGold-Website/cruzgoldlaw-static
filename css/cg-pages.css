@@ -554,7 +554,7 @@
 .e-sec .btn-row{justify-content:center}
 .e-more{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:28px;padding-top:32px;border-top:1px solid #e3d6bd;width:100%;max-width:760px}
 .e-more .chips{justify-content:center}
-@media (max-width:700px){.e-num{font-size:88px}}
+
 
 /* booking block of the home template (01 / 02), used on pages whose template has no booking block */
 .h-book{background:#F8F2EB;padding:64px 0}
@@ -589,9 +589,12 @@
 .h-callus .cityph{display:inline}
 }
 @media (max-width:360px){.h-cal .calendly-inline-widget{min-width:0}}
-.svc-aside{display:flex}
+/* template 07: the contents box and the booking card stay visible on phones, above the article */
+.svc-aside{flex:1 1 260px;max-width:300px;position:sticky;top:24px;display:flex;flex-direction:column;gap:18px}
+@media (max-width:1100px){.svc-aside{position:static}}
 .tbl .tv{font-size:19px;color:#0c152c;font-weight:400}
 .tbl td:has(.tv) + td{white-space:nowrap}
 /* Calendly auto-resize can report a near-zero height in the dark booking block; never let the box collapse */
 .calendly-inline-widget{min-height:690px}
 @media (max-width:700px){.calendly-inline-widget{min-height:880px}}
+h1.e-num,p.e-h{margin:0}

@@ -7,7 +7,7 @@ from extract import Page, txt, _cls, head_of, meta_fingerprint, REPO, live_html
 from blocks import *
 from parts import header, footer, CAL, PHONE, GOOGLE, STAR, stars, PHONES, PLUS, MINUS, ARROW
 
-V = "20261117f"
+V = "20261117i"
 IMG = "/images/redesign/"
 CALENDLY_PARAMS = "primary_color=bf992d&amp;text_color=0c152c"
 
@@ -342,7 +342,7 @@ def build_service(slug):
         body_parts.append(author_box(p))
     aside = toc_aside(items, "Talk to Zachary first", "Free consultation. You hear the fee before any work begins.", book_href(p))
     body = f'''<section class="p-body"><div class="wrap">
-{aside.replace('class="toc-desk"', 'class="toc-desk svc-aside"')}
+{aside.replace('class="toc-desk"', 'class="svc-aside"')}
 <article class="art">{"".join(body_parts)}</article>
 </div></section>'''
     if slug == "green-card-lawyer":
@@ -445,6 +445,21 @@ def page_html(p, inner_html, css=("cg.css", "cg-pages.css"), extra_css=()):
             "\n<main id=\"main\">\n" + inner_html + "\n</main>\n" + footer(book="#book" if p.cal_url else "/contact/") + "\n</div>\n" +
             f'<script src="/js/cg.js?v={V}" defer></script>\n</body>\n</html>\n')
 
+# pages for a city with its own line: the header call button, the phone top bar and the sticky call bar dial that office
+PAGE_PHONE = {"immigration-lawyer-philadelphia": ("+12156082131", "(215) 608-2131", "Philadelphia"),
+              "immigration-lawyer-houston": ("+18329247490", "(832) 924-7490", "Houston")}
+
+def local_phone(slug, html):
+    if slug not in PAGE_PHONE: return html
+    tel, num, city = PAGE_PHONE[slug]
+    reps = [('class="mob-only icon-btn call-ic" href="tel:+16099248500" aria-label="Call the Ewing office"', f'class="mob-only icon-btn call-ic" href="tel:{tel}" aria-label="Call the {city} office"'),
+            ('<a class="ubar-call" href="tel:+16099248500">(609) 924-8500</a>', f'<a class="ubar-call" href="tel:{tel}">{num}</a>'),
+            ('<div class="callbar"><a class="btn btn-line" href="tel:+16099248500">', f'<div class="callbar"><a class="btn btn-line" href="tel:{tel}">')]
+    for a, b in reps:
+        assert html.count(a) == 1, a
+        html = html.replace(a, b)
+    return html
+
 def write(slug, html):
     path = os.path.join(REPO, "404.html" if slug == "404" else os.path.join(slug, "index.html"))
     open(path, "w", encoding="utf8", newline="\n").write(html)
@@ -464,7 +479,7 @@ def main(slugs):
         if not b:
             print("no builder for", s); continue
         p, inner_html = b(s)
-        html = page_html(p, inner_html)
+        html = local_phone(s, page_html(p, inner_html))
         check_head(p, html)
         write(s, html)
         print("built", s, len(html))

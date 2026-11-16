@@ -289,7 +289,7 @@ def build_loc_town(slug):
         parts = [section_html(h2, bl2, p, B.SERVICE, {"hl": "interview"}) for h2, bl2 in rest]
         parts.append(author_box(p))
         out.append(f'''<section class="p-body"><div class="wrap">
-{toc_aside(items, "Talk to Zachary first", "Free consultation. You hear the fee before any work begins.", "#book")}
+{toc_aside(items, "Talk to Zachary first", "Free consultation. You hear the fee before any work begins.", "#book").replace('class="toc-desk"', 'class="svc-aside"')}
 <article class="art">{"".join(parts)}</article></div></section>''')
     hf, fb = faq_block(p)
     if hf is not None:
@@ -609,8 +609,8 @@ def build_404(slug):
     ch = "".join(f'<a class="chip" href="{h}">{t}</a>' for t, h in chips)
     return p, f'''<section class="e-sec"><div class="hexbg e-hex" aria-hidden="true"></div><div class="wrap">
 <img class="mono" src="{IMG}monogram-color.webp" alt="" width="168" height="125">
-<p class="display e-num">404</p>
-<h1 class="display h-l e-h">Page not found</h1>
+<h1 class="display e-num">404</h1>
+<p class="display h-l e-h">Page not found</p>
 <p class="lede">The page you’re looking for doesn’t exist or has been moved. Let’s get you back on track.</p>
 <div class="btn-row"><a class="btn btn-navy" href="/">Go to homepage</a><a class="btn btn-line" href="/contact/">Contact us</a></div>
 <div class="e-more"><p class="eyebrow">Or start with</p><div class="chips">{ch}</div></div>
