@@ -102,4 +102,37 @@
     track.addEventListener('scroll', edges, { passive: true });
     edges();
   }
+
+  /* review sliders on the location pages: same arrow logic (filled = you can go that way) */
+  [].forEach.call(d.querySelectorAll('[data-slider]'), function (t) {
+    var sec = t.closest('section');
+    var p = sec && sec.querySelector('.sl-prev'), n = sec && sec.querySelector('.sl-next');
+    if (!p || !n) return;
+    function ends() {
+      p.disabled = t.scrollLeft <= 2;
+      n.disabled = t.scrollLeft >= t.scrollWidth - t.clientWidth - 2;
+    }
+    p.addEventListener('click', function () { t.scrollBy({ left: -(t.clientWidth + 24), behavior: 'smooth' }); });
+    n.addEventListener('click', function () { t.scrollBy({ left: t.clientWidth + 24, behavior: 'smooth' }); });
+    t.addEventListener('scroll', ends, { passive: true });
+    window.addEventListener('resize', ends);
+    ends();
+  });
+
+  /* "On this page": mark the section being read */
+  var tocLinks = [].slice.call(d.querySelectorAll('.toc-box a, .x-toc a'));
+  if (tocLinks.length && 'IntersectionObserver' in window) {
+    var targets = tocLinks.map(function (a) { return d.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); });
+    var io = new IntersectionObserver(function () {
+      var cur = 0;
+      targets.forEach(function (el, i) { if (el && el.getBoundingClientRect().top < window.innerHeight * 0.3) cur = i; });
+      tocLinks.forEach(function (a, i) { a.classList.toggle('on', i === cur); });
+    }, { rootMargin: '0px 0px -60% 0px', threshold: [0, 1] });
+    targets.forEach(function (el) { if (el) io.observe(el); });
+  }
+
+  /* phone contents list closes after a jump */
+  [].forEach.call(d.querySelectorAll('.toc-phone a'), function (a) {
+    a.addEventListener('click', function () { var det = a.closest('details'); if (det) det.open = false; });
+  });
 })();
