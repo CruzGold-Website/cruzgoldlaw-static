@@ -346,6 +346,9 @@ def card_img(slug, eager=False):
 def card_for(title, href, excerpt, eager=False):
     slug = href.strip("/").split("/")[-1]
     label = LABEL.get(slug) or GROUPS.get(slug) or ("Locations" if slug in TOWN or slug in CITY else "Article")
+    # live excerpts can end in their own "Read more" link; a link inside the card link splits the card, so drop it and unwrap any other link
+    excerpt = re.sub(r'\s*<a\b[^>]*>\s*Read more\s*</a>', "", excerpt, flags=re.I)
+    excerpt = re.sub(r'<a\b[^>]*>(.*?)</a>', r'\1', excerpt, flags=re.S)
     go = "Read the guide →" if label.startswith("Guide") else ("Read the article →" if label.startswith("Article") else "Read more →")
     return f'<a class="post-card" href="{href}">{card_img(slug, eager)}<span class="pc-b"><span class="eyebrow">{label}</span><h3 class="serif">{H.escape(title)}</h3><span class="pc-x">{excerpt}</span><span class="pc-go">{go}</span></span></a>'
 

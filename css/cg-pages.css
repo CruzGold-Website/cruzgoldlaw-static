@@ -274,6 +274,7 @@
 .l-office-t span.sub{font-size:14.5px}
 .l-office-t a{color:#d9b65a;font-weight:800;text-decoration:none;font-size:17px}
 .l-office .btn{min-height:48px}
+@media (max-width:700px){.l-office{margin:-70px 14px 0;padding:24px 22px;grid-template-columns:minmax(0,1fr)}.l-office .btn{justify-self:start}}
 .l-meet{position:relative;margin:-90px 28px 0;background:#0c152c;color:#c9cfdc;border-radius:18px;padding:26px 28px;display:flex;flex-direction:column;gap:14px;box-shadow:0 30px 60px -30px rgba(12,21,44,.7)}
 .l-meet-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 .l-meet-g > span{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;line-height:1.5}

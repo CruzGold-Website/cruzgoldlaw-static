@@ -20,6 +20,8 @@
     b.addEventListener('click', function (e) {
       e.stopPropagation();
       var open = b.getAttribute('aria-expanded') === 'true';
+      if (open && b.hov && Date.now() - b.hov < 1000) { b.hov = 0; return; } /* the click that follows a hover keeps the panel open */
+      b.hov = 0;
       closeMega();
       if (!open) {
         b.setAttribute('aria-expanded', 'true');
@@ -31,6 +33,30 @@
   d.addEventListener('click', function (e) {
     if (!e.target.closest('.mega') && !e.target.closest('.navbtn')) closeMega();
   });
+  /* with a mouse the panels also open on hover; the buttons keep working for touch and keyboard */
+  var hoverMq = window.matchMedia('(hover: hover) and (pointer: fine)');
+  var hoverT;
+  function openMega(b) {
+    closeMega();
+    b.setAttribute('aria-expanded', 'true');
+    d.getElementById(b.getAttribute('aria-controls')).hidden = false;
+    if (dim) dim.hidden = false;
+  }
+  navBtns.forEach(function (b) {
+    b.addEventListener('mouseenter', function () {
+      if (!hoverMq.matches) return;
+      clearTimeout(hoverT);
+      if (b.getAttribute('aria-expanded') !== 'true') { openMega(b); b.hov = Date.now(); }
+    });
+  });
+  if (hdr) {
+    hdr.addEventListener('mouseenter', function () { clearTimeout(hoverT); });
+    hdr.addEventListener('mouseleave', function () {
+      if (!hoverMq.matches) return;
+      clearTimeout(hoverT);
+      hoverT = setTimeout(closeMega, 200);
+    });
+  }
   if (dim) dim.addEventListener('click', closeMega);
 
   /* phone and tablet menu */
