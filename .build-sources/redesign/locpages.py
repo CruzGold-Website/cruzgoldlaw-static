@@ -190,11 +190,18 @@ def build_loc_office(slug):
     rest = [s for s in rest if s not in award]
     if award:
         h2, bl2 = award[0]
-        link = p.ec.find("a", string=re.compile("award recognition"))
+        # the live link holds a <span> for the arrow, so match on its full text, not .string
+        link = next((a for a in p.ec.find_all("a", href=True) if "award recognition" in txt(a)), None)
         lk = f'<a class="arrow-link" href="{link["href"]}">View our award recognition →</a>' if link else ""
+        bimg = p.ec.select_one(".award-recognition__badge a img")
+        badge = ""
+        if bimg:
+            ba = bimg.find_parent("a")
+            badge = (f'<a href="{ba["href"]}" style="display:block;margin:0 auto 8px"><img src="{bimg["src"]}" alt="{H.escape(bimg.get("alt", ""))}" '
+                     f'width="{bimg.get("width", 220)}" height="{bimg.get("height", 220)}" loading="lazy" style="width:140px;height:auto;display:block"></a>')
         ps = "".join(f'<p class="serif" style="margin:0;font-size:20px;line-height:1.5;color:#0c152c">{inner(b)}</p>' for b in bl2 if b.name == "p")
         out.insert(2, f'''<section class="mem-strip"><div class="wrap"><div class="mem-strip-t" style="text-align:center;align-items:center">
-<p class="eyebrow">Recognized in Houston</p><h2 class="display" style="font-size:34px;line-height:1.15">{inner(h2)}</h2>{ps}{lk}</div></div></section>''')
+{badge}<p class="eyebrow">Recognized in Houston</p><h2 class="display" style="font-size:34px;line-height:1.15">{inner(h2)}</h2>{ps}{lk}</div></div></section>''')
     out.append(loc_reviews("New Jersey families on working with us" if c["city"] == "New Jersey" else f"{c['city']} clients on working with us"))
     if rest:
         out.append(prose_section(rest, p))
@@ -205,8 +212,12 @@ def build_loc_office(slug):
     office_word = c["call"].replace("Call the ", "")
     out.append(booking_dark(p, f'Talk to Zachary about your <em>{c["city"]} case</em>',
                             f'Pick a day below, or call the {office_word} at <a href="tel:{c["tel"]}">{c["teln"]}</a>. ¡Hablamos español!'))
-    out.append(mem_strip())
+    if has_memorial(p):  # leave the block out where the live page has no memorial
+        out.append(mem_strip())
     return p, "\n".join(out)
+
+def has_memorial(p):
+    return p.main.find(string=re.compile(r"Remembering Marta")) is not None
 
 # ---------------------------------------------------------------- 06: city without an office
 TOWN = {"immigration-lawyer-newark-nj": ("Newark", "about an hour south by car"),
@@ -300,7 +311,8 @@ def build_loc_town(slug):
 <div class="faq">{r_faq(fb)}</div></div></section>''')
     out.append(booking_dark(p, f'Talk to Zachary about your <em>{town} case</em>',
                             'Pick a day below for a video or in-person consultation, or call <a href="tel:+16099248500">(609) 924-8500</a>. ¡Hablamos español!'))
-    out.append(mem_strip())
+    if has_memorial(p):  # leave the block out where the live page has no memorial
+        out.append(mem_strip())
     return p, "\n".join(out)
 
 for s in CITY: BUILDERS[s] = build_loc_office
@@ -320,21 +332,22 @@ def blog_items(slug):
         items.append((txt(h5), a["href"] if a else "#", inner(ex) if ex is not None else ""))
     return p, items
 
-def card_img(slug):
+def card_img(slug, eager=False):
+    lazy = "" if eager else ' loading="lazy"'  # cards on the first screen load right away
     photo = PHOTO.get(slug)
     if photo:
-        return f'<img class="pc-img" src="{IMG}{photo[0]}.webp" alt="" width="1200" height="800" loading="lazy" style="object-position:{photo[1]}">'
+        return f'<img class="pc-img" src="{IMG}{photo[0]}.webp" alt="" width="1200" height="800"{lazy} style="object-position:{photo[1]}">'
     lp = Page(slug)
     f = first_figure_img(lp)
     fi = f.find("img") if f is not None else None
     src = fi["src"] if fi is not None else f"{IMG}professional.webp"
-    return f'<img class="pc-img" src="{H.escape(src)}" alt="" width="1200" height="800" loading="lazy">'
+    return f'<img class="pc-img" src="{H.escape(src)}" alt="" width="1200" height="800"{lazy}>'
 
-def card_for(title, href, excerpt):
+def card_for(title, href, excerpt, eager=False):
     slug = href.strip("/").split("/")[-1]
     label = LABEL.get(slug) or GROUPS.get(slug) or ("Locations" if slug in TOWN or slug in CITY else "Article")
     go = "Read the guide →" if label.startswith("Guide") else ("Read the article →" if label.startswith("Article") else "Read more →")
-    return f'<a class="post-card" href="{href}">{card_img(slug)}<span class="pc-b"><span class="eyebrow">{label}</span><h3 class="serif">{H.escape(title)}</h3><span class="pc-x">{excerpt}</span><span class="pc-go">{go}</span></span></a>'
+    return f'<a class="post-card" href="{href}">{card_img(slug, eager)}<span class="pc-b"><span class="eyebrow">{label}</span><h3 class="serif">{H.escape(title)}</h3><span class="pc-x">{excerpt}</span><span class="pc-go">{go}</span></span></a>'
 
 BLOG_PAGES = ["blog", "category-blog-page-2", "category-blog-page-3"]
 def build_blog(slug):
@@ -356,10 +369,10 @@ def build_blog(slug):
         mins = max(1, round(len(re.findall(r"\w+", " ".join(txt(b) for b in lp.blocks))) / 230))
         meta = " · ".join(x for x in (date, f"{mins} min read") if x)
         label = LABEL.get(s0, "Guide")
-        feat = f'''<a href="{href}" class="post-card feat workwith" aria-label="{H.escape(t)}"><img src="{IMG}{photo[0]}.webp" alt="" width="1600" height="1066" loading="lazy" style="object-position:{photo[1]}">
+        feat = f'''<a href="{href}" class="post-card feat workwith" aria-label="{H.escape(t)}"><img src="{IMG}{photo[0]}.webp" alt="" width="1600" height="1066" style="object-position:{photo[1]}">
 <span class="feat-b"><span class="eyebrow">Newest guide · {label.split(" · ")[-1]}</span><h2 class="serif">{H.escape(t)}</h2><span class="x">{ex}</span><span class="d">{meta}</span><span class="btn btn-navy">Read the guide</span></span></a>'''
         grid_items = items[1:]
-    cards = "".join(card_for(*it) for it in grid_items)
+    cards = "".join(card_for(*it, eager=(n > 1 and i < 3)) for i, it in enumerate(grid_items))
     pg = ['<span class="off" aria-disabled="true">← Previous</span>' if n == 1 else f'<a href="{"/blog/" if n == 2 else "/category-blog-page-2/"}">← Previous</a>']
     for k, s in enumerate(BLOG_PAGES, 1):
         pg.append(f'<span aria-current="page">{k}</span>' if k == n else f'<a href="{"/blog/" if k == 1 else "/" + s + "/"}">{k}</a>')

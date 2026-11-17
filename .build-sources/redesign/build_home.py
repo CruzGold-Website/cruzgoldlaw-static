@@ -103,7 +103,7 @@ body = f'''<body class="cg-site home">
 <img class="h-m1" src="/images/redesign/family-baby.webp" alt="" width="600" height="400" loading="lazy">
 <img class="h-m2" src="/images/redesign/grandparents.webp" alt="" width="600" height="405" loading="lazy">
 <img class="h-m3" src="/images/redesign/senior-couple.webp" alt="" width="600" height="405" loading="lazy">
-<div class="h-since"><img src="/images/redesign/monogram-white.webp" alt="" width="120" height="89" loading="lazy"><span class="serif h-since-t">Since 1995</span><span class="h-since-p">Founded by Marta Cruz Gold in Mercer County, New Jersey.</span></div>
+<div class="h-since"><img src="/images/redesign/monogram-white-112.webp" alt="" width="112" height="83" loading="lazy"><span class="serif h-since-t">Since 1995</span><span class="h-since-p">Founded by Marta Cruz Gold in Mercer County, New Jersey.</span></div>
 </div>
 <div class="stack24">
 <p class="eyebrow">A family firm</p>
@@ -226,7 +226,7 @@ body = f'''<body class="cg-site home">
 <div class="h-cta-shade" aria-hidden="true"></div>
 <div class="wrap on-dark h-cta-in">
 <div class="h-cta-t">
-<img class="h-cta-mono" src="/images/redesign/monogram-white.webp" alt="" width="120" height="89" loading="lazy">
+<img class="h-cta-mono" src="/images/redesign/monogram-white-112.webp" alt="" width="112" height="83" loading="lazy">
 <h2 class="display h-l h-cta-h">Take the first step toward <em>peace of mind</em></h2>
 <p class="lede">Every office books the same free consultation with attorney Zachary Gold. ¡Hablamos español!</p>
 <div class="btn-row"><a class="btn btn-gold" href="#book">Book a free consultation</a><a class="btn btn-ghost" href="tel:+16099248500">Call (609) 924-8500</a></div>

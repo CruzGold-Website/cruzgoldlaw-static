@@ -119,7 +119,7 @@ def header(book="#book", home="/"):
 </div></div>
 <header class="site-hdr" id="site-hdr">
 <div class="wrap hdr">
-<a href="{home}" aria-label="Cruz Gold &amp; Associates, home"><img class="site-logo" src="/images/redesign/logo-color.webp" alt="Cruz Gold &amp; Associates" width="440" height="234"></a>
+<a href="{home}" aria-label="Cruz Gold &amp; Associates, home"><img class="site-logo" src="/images/redesign/logo-color-232.webp" alt="Cruz Gold &amp; Associates" width="440" height="234"></a>
 <nav class="desk-only mainnav" aria-label="Main">{nav}</nav>
 <div class="hdr-act">
 <a class="btn btn-gold hide-phone hdr-cta" href="{book}">Free consultation</a>
@@ -141,7 +141,7 @@ def footer(pad_cls="", book="#book"):
 <div class="wrap">
 <div class="footgrid">
 <div class="foot-brand">
-<img class="foot-logo" src="/images/redesign/logo-white.webp" alt="Cruz Gold &amp; Associates" width="440" height="234" loading="lazy">
+<img class="foot-logo" src="/images/redesign/logo-white-420.webp" alt="Cruz Gold &amp; Associates" width="440" height="234" loading="lazy">
 <p class="foot-about">Immigration lawyers for families, workers and people facing immigration court in New Jersey, Philadelphia and Houston. Since 1995.</p>
 <p class="foot-contact"><a class="foot-tel" href="tel:+16099248500">(609) 924-8500</a><br><span class="foot-dot"> · </span><a href="mailto:info@cruzgoldlaw.com">info@cruzgoldlaw.com</a></p>
 </div>

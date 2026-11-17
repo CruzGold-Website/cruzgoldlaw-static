@@ -179,7 +179,7 @@ def author_box(p):
     if not a: return ""
     t = a.select_one(".cg-author-bio__text") or a
     return f'''<div class="author">
-<img class="hexclip" src="{IMG}zachary-2x.webp" alt="Attorney Zachary Gold" width="784" height="980" loading="lazy">
+<img class="hexclip" src="{IMG}zachary-author.webp" alt="Attorney Zachary Gold" width="224" height="280" loading="lazy">
 <div class="author-t"><p class="eyebrow">About the author</p><strong class="serif author-n">Zachary Gold, Esq.</strong><p>{inner(t)}</p></div>
 </div>'''
 
@@ -227,7 +227,7 @@ def section_html(h, blocks, page, kind, ctx):
         a = next(b for b in blocks if "cg-attorney" in _cls(b))
         ps = "".join(f"<p>{inner(x)}</p>" for x in a.find_all("p"))
         return f'''<div class="art-sec"><h2 class="display art-h2" id="{hid}">{inner(h)}</h2>
-<div class="author"><img class="hexclip" src="{IMG}zachary-2x.webp" alt="Attorney Zachary Gold" width="784" height="980" loading="lazy"><div class="author-t">{ps}</div></div></div>'''
+<div class="author"><img class="hexclip" src="{IMG}zachary-author.webp" alt="Attorney Zachary Gold" width="224" height="280" loading="lazy"><div class="author-t">{ps}</div></div></div>'''
     # key takeaways (guides)
     if tl.startswith("key takeaways") and blocks and blocks[-1].name == "ul":
         intro = "".join(render(b) for b in blocks[:-1])

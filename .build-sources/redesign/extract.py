@@ -69,7 +69,8 @@ class Page:
         self.cover = self.main.select_one(".wp-block-cover")
         self.ec = self.main.select_one(".entry-content") or self.main
         self.blocks = leaves(self.ec)
-        cal = re.findall(r'class="calendly-inline-widget" data-url="([^"]+)"(?: data-source="([^"]*)")?', self.raw)
+        # read the attributes, not a regex: attribute order differs between pages (i-751 has data-source first)
+        cal = [(w.get("data-url"), w.get("data-source") or "") for w in self.soup.select(".calendly-inline-widget") if w.get("data-url")]
         self.cal_url, self.cal_source = (cal[0] if cal else (None, None))
         self.author = self.main.select_one(".cg-author-bio")
         self.byline = body.select_one(".cg-byline")
