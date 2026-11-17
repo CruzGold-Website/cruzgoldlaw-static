@@ -507,9 +507,11 @@ def testimonials():
     p = Page("client-testimonials")
     out = []
     for it in p.soup.select(".gb-loop-item"):
-        ps = [x for x in it.find_all(["p", "h2", "h3", "h4", "h5"]) if txt(x)]
-        if len(ps) >= 2:
-            out.append((inner(ps[0]), txt(ps[-1])))
+        # live item: the reviewer's name is the heading, the review is the paragraph
+        name = next((x for x in it.find_all(["h2", "h3", "h4", "h5"]) if txt(x)), None)
+        body = [x for x in it.find_all("p") if txt(x)]
+        assert name is not None and len(body) == 1, f"unexpected testimonial markup: {txt(it)[:80]}"
+        out.append((inner(body[0]), txt(name)))
     return out
 
 def build_testimonials(slug):
