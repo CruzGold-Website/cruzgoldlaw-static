@@ -15,7 +15,7 @@
 .pager .off{color:#9aa0ad;border-color:#ece4d6}
 .tbl{border-radius:16px;border:1px solid #ece4d6;overflow-x:auto}
 .tbl table{width:100%;min-width:560px;border-collapse:collapse;font-size:15.5px;line-height:1.5;background:#fff}
-.legal h2{font-family:'Libre Caslon Display',Georgia,serif;font-weight:400;color:#0c152c;font-size:34px;line-height:1.15;margin:56px 0 16px}
+.legal h2{font-family:'Libre Caslon Display','Libre Caslon Display Fallback',Georgia,serif;font-weight:400;color:#0c152c;font-size:34px;line-height:1.15;margin:56px 0 16px}
 .legal h3{color:#0c152c;font-size:19px;margin:32px 0 10px}
 .legal p,.legal li{font-size:16.5px;line-height:1.75}
 .legal p{margin:0 0 14px}
