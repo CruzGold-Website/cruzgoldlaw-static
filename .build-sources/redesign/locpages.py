@@ -349,7 +349,8 @@ def card_for(title, href, excerpt, eager=False):
     # live excerpts can end in their own "Read more" link; a link inside the card link splits the card, so drop it and unwrap any other link
     excerpt = re.sub(r'\s*<a\b[^>]*>\s*Read more\s*</a>', "", excerpt, flags=re.I)
     excerpt = re.sub(r'<a\b[^>]*>(.*?)</a>', r'\1', excerpt, flags=re.S)
-    go = "Read the guide →" if label.startswith("Guide") else ("Read the article →" if label.startswith("Article") else "Read more →")
+    excerpt = re.sub(r"\s*Read more\.?\s*$", "", excerpt)  # the card has its own link
+    go = "Read the article →" if label.startswith("Article") else "Read the guide →"  # template 09 uses only these two
     return f'<a class="post-card" href="{href}">{card_img(slug, eager)}<span class="pc-b"><span class="eyebrow">{label}</span><h3 class="serif">{H.escape(title)}</h3><span class="pc-x">{excerpt}</span><span class="pc-go">{go}</span></span></a>'
 
 BLOG_PAGES = ["blog", "category-blog-page-2", "category-blog-page-3"]
