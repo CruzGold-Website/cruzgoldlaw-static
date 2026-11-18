@@ -351,3 +351,5 @@
 }
 .calendly-inline-widget{min-height:690px}
 @media (max-width:700px){.calendly-inline-widget{min-height:880px}}
+/* Calendly two-column layout reports ~690px, which leaves its own left panel scrolling; 800px clears it (phones and tablets are already taller) */
+@media (min-width:701px){.calendly-inline-widget,.calendly-inline-widget iframe{min-height:800px}}

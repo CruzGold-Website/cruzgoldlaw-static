@@ -355,9 +355,20 @@ def card_for(title, href, excerpt, eager=False):
     return f'<a class="post-card" href="{href}">{card_img(slug, eager)}<span class="pc-b"><span class="eyebrow">{label}</span><h3 class="serif">{H.escape(title)}</h3><span class="pc-x">{excerpt}</span><span class="pc-go">{go}</span></span></a>'
 
 BLOG_PAGES = ["blog", "category-blog-page-2", "category-blog-page-3"]
+PER_PAGE = 9  # the grid is 3 across, so 9 cards fill pages 1 and 2 with no lone card; page 3 takes the rest
+def all_blog_items():
+    seen, out = set(), []
+    for s in BLOG_PAGES:  # live order: page 1, then 2, then 3
+        for it in blog_items(s)[1]:
+            if it[1] not in seen:
+                seen.add(it[1]); out.append(it)
+    return out
 def build_blog(slug):
-    p, items = blog_items(slug)
+    p, _ = blog_items(slug)
     n = BLOG_PAGES.index(slug) + 1
+    allit = all_blog_items()
+    # page 1 keeps the newest post as its featured card; the grid pages split the rest 9 / 9 / rest
+    items = [allit[0]] + allit[1:1 + PER_PAGE] if n == 1 else allit[1 + PER_PAGE * (n - 1):1 + PER_PAGE * n] if n < 3 else allit[1 + PER_PAGE * 2:]
     out = [crumb([("Home", "/"), ("Blog", None)] if n == 1 else [("Home", "/"), ("Blog", "/blog/"), (f"Page {n}", None)])]
     out.append(f'''<section class="b-head"><div class="hexbg b-head-hex" aria-hidden="true"></div><div class="wrap">
 <h1 class="eyebrow eyeline">{H.escape(p.h1)}</h1>

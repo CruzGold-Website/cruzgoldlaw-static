@@ -183,6 +183,7 @@
 /* fees box */
 .fee-box{background:#F8F2EB;border-radius:22px;padding:40px;display:flex;flex-direction:column;gap:16px;border:1px solid #ece4d6}
 .fee-box h2{font-size:34px;line-height:1.15}
+@media (max-width:700px){.fee-box{padding:28px 16px}.tbl.svc th,.tbl.svc td{padding:13px 14px}}
 /* FAQ in an article */
 .art .faq{display:flex;flex-direction:column}
 .art .faq .art-h2{margin-bottom:10px}
@@ -599,3 +600,5 @@
 .calendly-inline-widget{min-height:690px}
 @media (max-width:700px){.calendly-inline-widget{min-height:880px}}
 h1.e-num,p.e-h{margin:0}
+/* Calendly two-column layout reports ~690px, which leaves its own left panel scrolling; 800px clears it (phones and tablets are already taller) */
+@media (min-width:701px){.calendly-inline-widget,.calendly-inline-widget iframe{min-height:800px}}
