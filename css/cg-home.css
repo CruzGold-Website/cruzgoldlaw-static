@@ -110,7 +110,7 @@
 .h-arch img{position:relative;width:100%;height:350px;object-fit:cover;object-position:50% 15%;border-radius:150px 150px 18px 18px;filter:grayscale(.15)}
 .h-marta-t{display:flex;flex-direction:column;gap:20px}
 .h-marta-h{font-size:46px;line-height:1.1}
-.h-marta-h span{color:#866a19}
+.h-marta-h span{color:#866a19;white-space:nowrap}
 .h-marta-q{margin:0;font-size:20px;line-height:1.6;color:#0c152c;font-style:italic}
 .h-marta-p{margin:0;line-height:1.75;font-size:16.5px}
 
