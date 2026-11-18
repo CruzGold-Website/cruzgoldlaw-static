@@ -416,7 +416,10 @@ def build_guide(slug):
     others = [g for g in GUIDES if g != slug]
     i = GUIDES.index(slug)
     pick = (GUIDES[i + 1:] + GUIDES[:i])[:3]
-    cards = "".join(post_card(g, EXCERPT.get(g, "")) for g in pick)
+    # the same cards as the blog list, with the live excerpt (template 08 shows one on every card)
+    import locpages
+    blog = {h.strip("/").split("/")[-1]: (t, h, ex) for t, h, ex in locpages.all_blog_items()}
+    cards = "".join(locpages.card_for(*blog[g]) if g in blog else post_card(g, "") for g in pick)
     more = f'''<section class="more-g"><div class="wrap">
 <div class="review-head"><div><p class="eyebrow">Keep reading</p><h2 class="display h-l h46">More guides</h2></div><a class="btn btn-line" href="/blog/">All articles</a></div>
 <div class="g3" style="gap:28px">{cards}</div>

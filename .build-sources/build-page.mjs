@@ -339,7 +339,7 @@ const head = readFileSync(join(PARTIALS, 'head-template.html'), 'utf8')
   .replace(/\{\{OG_TYPE\}\}/g, 'article')
   .replace(/\{\{HEAD_EXTRA\}\}/g, extra.join('\n'))
   .replace(/\{\{PAGE_CSS\}\}/g, cssFile ? `<link rel="stylesheet" href="/${cssFile.replace(/^\//, '')}">` : '');
-const header = readFileSync(join(PARTIALS, 'header.html'), 'utf8').replace(/^<!--[\s\S]*?-->\n/, '');
+const header = readFileSync(join(PARTIALS, 'header.html'), 'utf8').replace(/^<!--[\s\S]*?-->\r?\n/, '');
 const footer = readFileSync(join(PARTIALS, 'footer.html'), 'utf8');
 
 const finalHtml = head + '<body class="cg-site cg-inner">\n' + header + hero + body + more + book + cta + '\n' + footer;
