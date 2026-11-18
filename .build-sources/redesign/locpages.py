@@ -192,7 +192,8 @@ def build_loc_office(slug):
         h2, bl2 = award[0]
         # the live link holds a <span> for the arrow, so match on its full text, not .string
         link = next((a for a in p.ec.find_all("a", href=True) if "award recognition" in txt(a)), None)
-        lk = f'<a class="arrow-link" href="{link["href"]}">View our award recognition →</a>' if link else ""
+        # template secondary button on a light section (05: "Call the Ewing office"); .arrow-link is only styled on home
+        lk = f'<a class="btn btn-line" href="{link["href"]}" style="margin-top:12px">View our award recognition</a>' if link else ""
         bimg = p.ec.select_one(".award-recognition__badge a img")
         badge = ""
         if bimg:
