@@ -4,7 +4,7 @@
 /* ---- base rules from the template <style> block not needed on the home page (verbatim) ---- */
 .masonry{column-count:3;column-gap:24px}
 .toc-phone{display:none}
-.toc-phone summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;min-height:56px;padding:0 20px;font:800 12px/1.3 'Mulish',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#866a19}
+.toc-phone summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;min-height:56px;padding:0 20px;font:800 12px/1.3 'Mulish','Mulish Fallback',system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#866a19}
 .toc-phone summary::-webkit-details-marker{display:none}
 .post-card{background:#fff;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:#3d4250;box-shadow:0 1px 0 rgba(12,21,44,.06),0 18px 40px -24px rgba(12,21,44,.35)}
 .post-card:hover h3,.post-card:hover h2{color:#866a19}
@@ -584,7 +584,7 @@
 .h-cal{margin-top:0}
 .h-cal .calendly-inline-widget{height:1000px}
 .h-callus{margin:0;line-height:normal}
-.h-callus-l{display:block;margin-top:18px;font:800 12px/1.3 'Mulish',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#866a19}
+.h-callus-l{display:block;margin-top:18px;font:800 12px/1.3 'Mulish','Mulish Fallback',system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#866a19}
 .h-callus ul{display:flex;flex-direction:column;border-top:1px solid #e3d9c8;margin-top:12px}
 .h-callus li{display:block}
 .h-callus li + li::before{content:none}
