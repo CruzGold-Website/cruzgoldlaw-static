@@ -373,8 +373,11 @@ def build_guide(slug):
     fig = first_figure_img(p)
     if fig is not None and p.blocks.index(fig) < 3:
         p.blocks.remove(fig)
-    firstp = next((b for b in p.blocks if b.name == "p" and txt(b)), None)
-    lede = inner(firstp) if firstp is not None else ""
+    # a quick answer box at the top (blockquote.cg-answer) is the lede, as in build-page.mjs; else the first paragraph
+    firstp = next((b for b in p.blocks[:2] if b.name == "blockquote" and "cg-answer" in _cls(b)), None)
+    if firstp is None:
+        firstp = next((b for b in p.blocks if b.name == "p" and txt(b)), None)
+    lede = (inner(firstp.find("p") or firstp) if firstp.name == "blockquote" else inner(firstp)) if firstp is not None else ""
     if firstp is not None: p.blocks.remove(firstp)
     label = LABEL[slug]
     gcrumb = crumb([("Home", "/"), ("Blog", "/blog/"), (H.escape(p.h1), None)])
