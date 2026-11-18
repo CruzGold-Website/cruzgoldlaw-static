@@ -1,51 +1,43 @@
 <!--
-TITLE: Example Blog Post Title | Cruz Gold & Associates
+TITLE: Example Blog Post Title
 DESCRIPTION: A short meta description for this blog post (under 160 characters).
-CANONICAL: example-blog-post.html
-CSS:
+CANONICAL: /example-blog-post/
+PUBLISHED: 2026-11-25
+H1: Example blog post title
+LABEL: Guide · Green cards
+IMAGE: /images/redesign/professional.webp
+IMAGE_POS: 50% 30%
 -->
-<!-- ====== MAIN CONTENT ====== -->
-<!-- NOTE: Replace everything below with the actual page content. -->
-<!-- For blog posts, copy the structure from an existing post like: -->
-<!-- immigration-lawyer-new-jersey-a-guide-to-family-based-immigration.html -->
+<!-- Replace everything below with the post. build-page.mjs puts it in the guide template:
+     the first paragraph goes under the heading, every <h2> is listed under "On this page",
+     and the author box, more guides, calendar and closing CTA are added for you.
+     A section headed "Related ..." shows its links as chips; a section made of <details> becomes the FAQ.
+     See _content/i-751-evidence-checklist.html for a full post with a table and images. -->
+<div class="cg-guide-body">
+<p><strong>Quick answer:</strong> One or two sentences that answer the question in the title.</p>
 
-<div id="content" class="site-content">
-<div class="inside-site-info grid-container grid-parent">
-<div class="content-area" id="primary">
+<h2>Section heading</h2>
+<p>Paragraph text goes here.</p>
+<ul>
+<li>List item one</li>
+<li>List item two</li>
+<li>List item three</li>
+</ul>
 
-  <article>
+<h2>Another section</h2>
+<p>More content here.</p>
+<figure>
+<img src="/images/example.webp" alt="Describe the photo" width="1200" height="627">
+<figcaption>Caption under the photo.</figcaption>
+</figure>
 
-    <!-- Hero / page title -->
-    <div class="gbp-section gb-element-XXXX">
-      <div class="gbp-section__inner gb-element-XXXX">
-        <h1 class="gb-text">Your Blog Post Title Here</h1>
-        <p class="gb-text">Published: Month DD, YYYY &nbsp;|&nbsp; Category: Immigration Law</p>
-      </div>
-    </div>
+<h2>Frequently asked questions</h2>
+<details><summary>A question people ask?</summary><p>The answer.</p></details>
+<details><summary>Another question?</summary><p>The answer.</p></details>
 
-    <!-- Body content -->
-    <div class="gbp-section gb-element-XXXX">
-      <div class="gbp-section__inner gb-element-XXXX">
-
-        <p>Write your blog post content here. You can use standard HTML tags:</p>
-
-        <h2>Section Heading</h2>
-        <p>Paragraph text goes here.</p>
-
-        <ul>
-          <li>List item one</li>
-          <li>List item two</li>
-          <li>List item three</li>
-        </ul>
-
-        <h2>Another Section</h2>
-        <p>More content here.</p>
-
-      </div>
-    </div>
-
-  </article>
-
-</div><!-- #primary -->
-</div><!-- .inside-site-info -->
-</div><!-- #content -->
+<h2>Related pages</h2>
+<ul>
+<li><a href="/green-card-lawyer/">Green card lawyer</a></li>
+<li><a href="/citizenship-lawyer/">Citizenship lawyer</a></li>
+</ul>
+</div>

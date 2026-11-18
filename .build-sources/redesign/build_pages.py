@@ -7,7 +7,7 @@ from extract import Page, txt, _cls, head_of, meta_fingerprint, REPO, live_html
 from blocks import *
 from parts import header, footer, CAL, PHONE, GOOGLE, STAR, stars, PHONES, PLUS, MINUS, ARROW
 
-V = "20261118b"
+V = "20261118d"
 IMG = "/images/redesign/"
 CALENDLY_PARAMS = "primary_color=bf992d&amp;text_color=0c152c"
 
@@ -220,7 +220,7 @@ def section_html(h, blocks, page, kind, ctx):
         return f'<div class="faq"><h2 class="display art-h2" id="{hid}">{inner(h)}</h2>{r_faq(blocks)}</div>'
     # related pages
     if tl.startswith("related") or tl.startswith("where we help"):
-        links = "".join(r_chips(b) for b in blocks if b.name in ("ul", "ol"))
+        links = "".join(r_chips(b) if b.name in ("ul", "ol") else render(b) for b in blocks)  # keeps a note after the links (fees page)
         return f'<div class="art-sec gap16"><p class="eyebrow" id="{hid}">{inner(h)}</p>{links}</div>'
     # attorney section
     if any("cg-attorney" in c for c in cls):
