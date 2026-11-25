@@ -28,7 +28,8 @@ const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_c
 const CLICK_ID_KEYS = ['gclid', 'gbraid', 'wbraid', 'dclid', 'gclsrc', 'fbclid', 'msclkid'];
 const EVENT_KINDS = ['call_click', 'email_click'];
 const REASONS = ['widget_focus', 'time_selected', 'booked', 'scheduler_link'];
-const PAGE_SOURCES = ['website', 'ewing', 'houston', 'philadelphia', 'hackensack'];
+const NAV_TYPES = ['navigate', 'reload', 'back_forward', 'prerender'];
+const PAGE_SOURCES =['website', 'ewing', 'houston', 'philadelphia', 'hackensack'];
 
 function text(value, max) {
   if (typeof value !== 'string') return null;
@@ -67,6 +68,10 @@ function touch(raw, origin) {
     utm: pick(raw.utm, UTM_KEYS, 200),
     ...pick(raw.ids, CLICK_ID_KEYS, 300),
     capturedAt: isoDate(raw.at),
+    // How the page was opened and how much history the tab had. Used by the
+    // CRM to read arrivals that carry no referrer.
+    navType: NAV_TYPES.includes(raw.nav) ? raw.nav : null,
+    historyLength: Number.isInteger(raw.hist) && raw.hist > 0 && raw.hist < 100 ? raw.hist : null,
   };
 }
 

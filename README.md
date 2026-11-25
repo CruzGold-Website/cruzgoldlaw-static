@@ -111,7 +111,8 @@ Custom domains:
 Every page loads `js/calendly-init.v2.js`, which also records how a visitor arrived and what they viewed, so the
 CRM can show the marketing channel and page trail behind each booking.
 
-- **In the browser.** First arrival (landing URL, outside referrer, UTMs, ad click IDs), a later tagged arrival, the
+- **In the browser.** First arrival (landing URL, outside referrer, UTMs, ad click IDs, plus how the page was opened:
+  navigation type and whether the tab was fresh, which the CRM uses to read arrivals with no referrer), a later tagged arrival, the
   pages viewed (up to 50) and phone/email link clicks are kept in `localStorage` under `cg_visit_v1` for 30 days.
   Nothing is sent while the visitor only reads.
 - **When they use the booking widget.** The record is POSTed to `/api/visit` (a click inside the widget, a time

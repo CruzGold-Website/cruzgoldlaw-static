@@ -21,6 +21,8 @@ function record(overrides = {}) {
       utm: { utm_source: 'google', utm_medium: 'cpc' },
       ids: { gclid: 'abc123' },
       tagged: true,
+      nav: 'navigate',
+      hist: 1,
     },
     last: null,
     pages: [
@@ -51,8 +53,13 @@ test('builds the CRM session from a browser record', () => {
     utm: { utm_source: 'google', utm_medium: 'cpc' },
     gclid: 'abc123',
     capturedAt: '2026-11-24T15:00:00.000Z',
+    navType: 'navigate',
+    historyLength: 1,
     userAgent: UA,
   });
+  const odd = buildSession(record({ first: { ...record().first, nav: 'weird', hist: 5000 } }), { origin: ORIGIN, cf: CF, userAgent: UA });
+  assert.equal(odd.data.attribution.navType, null);
+  assert.equal(odd.data.attribution.historyLength, null);
   assert.equal(session.data.visit.bookingPage, '/contact/');
   assert.equal(session.data.visit.pageSource, 'website');
   assert.equal(session.data.visit.pageViews, 2);
