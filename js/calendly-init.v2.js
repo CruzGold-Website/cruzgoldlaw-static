@@ -101,6 +101,15 @@
         if (value) { touch.ids[CLICK_ID_PARAMS[i]] = value.slice(0, 300); touch.tagged = true; }
       }
     } catch (e) { /* no URLSearchParams */ }
+    // Two hints for arrivals with no referrer: how the page was opened
+    // (navigate / reload / back_forward) and whether the tab had any history
+    // (1 = a fresh tab, as when a link is opened from another app).
+    try {
+      var entries = window.performance && window.performance.getEntriesByType
+        ? window.performance.getEntriesByType('navigation') : [];
+      if (entries.length && entries[0].type) touch.nav = String(entries[0].type).slice(0, 20);
+      if (window.history && window.history.length) touch.hist = Math.min(window.history.length, 99);
+    } catch (e) { /* older browser */ }
     return touch;
   }
 
