@@ -45,6 +45,8 @@ window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(argumen
 gtag("set","linker",{"domains":["cruzgoldlaw.com"]});
 gtag("js", new Date());
 gtag("set", "developer_id.dZTNiMT", true);
+// Pop-ad traffic is tagged so a GA4 data filter can drop it.
+(function(){var POP=/(^|\.)(popcash\.net|asdfix\.com|bhnnop\.com|pcdelv\.com|calcpol\.com|asopn\.com|rapolok\.com|namol\.xyz|jandaqwe\.com|wwfx\.xyz|zxclan\.com)$/i,K="cg_traffic_type",t=null;try{t=sessionStorage.getItem(K);}catch(e){}if(!t){var h="";try{h=new URL(document.referrer).hostname;}catch(e){}if(POP.test(h)){t="pop_ad";try{sessionStorage.setItem(K,t);}catch(e){}}}if(t)gtag("set",{traffic_type:t});})();
 gtag("config", "GT-K4TGJWQ6");
  window._googlesitekit = window._googlesitekit || {}; window._googlesitekit.throttledEvents = []; window._googlesitekit.gtagEvent = (name, data) => { var key = JSON.stringify( { name, data } ); if ( !! window._googlesitekit.throttledEvents[ key ] ) { return; } window._googlesitekit.throttledEvents[ key ] = true; setTimeout( () => { delete window._googlesitekit.throttledEvents[ key ]; }, 5 ); gtag( "event", name, { ...data, event_source: "site-kit" } ); };
 </script>
@@ -54,7 +56,7 @@ gtag("config", "GT-K4TGJWQ6");
 <meta name="msapplication-TileImage" content="/images/Favicon_legal_Services.png">
 		<link rel="stylesheet" href="/css/custom-overrides.css?v=20261003b" media="all">
 <link rel="stylesheet" href="/css/blog-author.css?v=20261112" media="all">
-<script src="/js/calendly-init.v2.js?v=20261003" defer></script>
+<script src="/js/calendly-init.v2.js?v=20261124" defer></script>
 </head>
 
 <body class="post-template-default single-format-standard wp-embed-responsive post-image-above-header post-image-aligned-center slideout-enabled slideout-mobile sticky-menu-fade sticky-enabled both-sticky-menu mobile-header mobile-header-logo mobile-header-sticky no-sidebar nav-float-right separate-containers header-aligned-left dropdown-hover featured-image-active" itemtype="https://schema.org/Blog" itemscope="">

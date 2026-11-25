@@ -6,7 +6,9 @@
   "scripts": {
     "build:page": "node .build-sources/build-page.mjs",
     "sitemap": "node .build-sources/generate-sitemap.mjs",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "bump": "node .build-sources/bump-asset-version.mjs",
+    "dev": "npx --yes wrangler@4 pages dev . --port 8788 --compatibility-date=2026-11-01",
+    "test": "node --test .build-sources/visit.test.mjs"
   },
   "keywords": [],
   "author": "",
