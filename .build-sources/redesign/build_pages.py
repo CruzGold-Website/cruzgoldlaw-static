@@ -21,6 +21,7 @@ GROUPS = {  # breadcrumb group, as in the menu
   "e-2-visa-lawyer-for-investors-entrepreneurs": "Visas", "tn-visa-lawyer": "Visas", "student-visa-lawyer-new-jersey": "Visas",
   "deportation-defense-lawyer": "Deportation &amp; Asylum", "asylum-lawyer": "Deportation &amp; Asylum", "criminal-immigration-lawyer": "Deportation &amp; Asylum", "vawa-lawyer": "Deportation &amp; Asylum",
   "immigration-lawyer-cost": "About",
+  "immigration-waiver-lawyer": "Family &amp; Citizenship", "u-visa-lawyer": "Family &amp; Citizenship", "t-visa-lawyer": "Family &amp; Citizenship",
 }
 GROUP_HOME = {"Family &amp; Citizenship": "/family-immigration-lawyer/", "Green Cards": "/green-card-lawyer/", "Visas": "/visa-lawyer/",
               "Deportation &amp; Asylum": "/deportation-defense-lawyer/", "About": "/about/", "Locations": None, "Blog": "/blog/"}
@@ -43,6 +44,9 @@ HEADLINE = {
   "o1-visa-lawyer": "O-1 petitions for scientists, founders, <em>artists and athletes.</em>",
   "vawa-lawyer": "Your own path to a green card, <em>without your abuser's signature.</em>",
   "visa-lawyer": "Need a U.S. visa? Start with the one <em>that fits your plans.</em>",
+  "immigration-waiver-lawyer": "A past overstay does not have to mean <em>ten years apart.</em>",
+  "u-visa-lawyer": "Protection for crime victims <em>who help the police.</em>",
+  "t-visa-lawyer": "Protection for survivors of <em>labor and sex trafficking.</em>",
   "immigration-lawyer-new-jersey": "Your family, <em>our priority.</em>",
   "immigration-lawyer-newark-nj": "Facing USCIS or immigration court in Newark? <em>Talk to an attorney first.</em>",
   "immigration-lawyer-philadelphia": "Start with a free call <em>to attorney Zachary Gold.</em>",
@@ -56,6 +60,7 @@ PHOTO = {
   "h1b-visa-lawyer": ("professional", "50% 25%"), "o1-visa-lawyer": ("professional", "50% 25%"), "deportation-defense-lawyer": ("parents-embrace", "50% 30%"),
   "asylum-lawyer": ("reunion-grandpa", "50% 30%"), "criminal-immigration-lawyer": ("senior-couple", "50% 35%"), "vawa-lawyer": ("family-door", "50% 35%"),
   "immigration-lawyer-cost": ("senior-couple", "50% 35%"),
+  "immigration-waiver-lawyer": ("airport-reunion", "58% 50%"), "u-visa-lawyer": ("dad-daughter", "50% 35%"), "t-visa-lawyer": ("family-baby", "50% 40%"),
   "n400-processing-time": ("oath", "50% 35%"), "eb2-niw-requirements": ("professional", "50% 25%"), "o1-visa-requirements": ("beach-flag", "50% 40%"),
   "immigration-attorneys-near-me": ("dad-daughter", "50% 35%"), "traveling-abroad-as-a-non-citizen-key-considerations": ("airport-reunion", "50% 40%"),
   "the-waiting-game-understanding-lengthy-immigration-process-times-in-the-u-s": ("reunion-grandpa", "50% 35%"),
@@ -82,7 +87,8 @@ GUIDES = ["n400-processing-time", "i-751-evidence-checklist", "eb2-niw-requireme
 SERVICES = ["green-card-lawyer", "deportation-defense-lawyer", "asylum-lawyer", "criminal-immigration-lawyer", "vawa-lawyer", "family-immigration-lawyer",
             "marriage-green-card-lawyer", "k1-visa-lawyer", "citizenship-lawyer", "eb-1-visa-lawyer", "eb2-niw-lawyer", "eb-5-visa-lawyer", "visa-lawyer",
             "h1b-visa-lawyer", "o1-visa-lawyer", "immigration-lawyer-cost", "adjustment-of-status-lawyer", "eb-3-visa-lawyer", "work-visa-lawyer-new-jersey",
-            "trusted-l-1-visa-lawyer", "e-2-visa-lawyer-for-investors-entrepreneurs", "tn-visa-lawyer", "student-visa-lawyer-new-jersey"]
+            "trusted-l-1-visa-lawyer", "e-2-visa-lawyer-for-investors-entrepreneurs", "tn-visa-lawyer", "student-visa-lawyer-new-jersey",
+            "immigration-waiver-lawyer", "u-visa-lawyer", "t-visa-lawyer"]
 
 # ---------------------------------------------------------------- shared pieces
 def crumb(items):

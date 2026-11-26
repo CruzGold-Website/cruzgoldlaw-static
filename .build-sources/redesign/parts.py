@@ -18,6 +18,8 @@ PHONES = [("Ewing", "Ewing, NJ", "+16099248500", "(609) 924-8500"),
 # Menu. Green Cards follows template 03/04. The other five groups use the same panel (user's call, 2026-11-17):
 # three columns with a short line under each link, taken from the facts on that page, and a photo card.
 # "Green card after asylum" is left out until a page covers it.
+# Family & Citizenship (Zach, Nov 24 call): Waivers in Family and a Humanitarian column (U visa, T visa, VAWA; VAWA
+# also stays under Deportation & Asylum). The panel holds three columns, so the two guides sit under Green card and citizenship.
 MENU = [
   ("locations", "Locations", [
      ("Our offices", [("New Jersey", "/immigration-lawyer-new-jersey/", "Ewing, just off I-295"),
@@ -31,11 +33,15 @@ MENU = [
   ("family", "Family &amp; Citizenship", [
      ("Family", [("Family-based immigration", "/family-immigration-lawyer/", "Parents, children and siblings"),
                  ("Marriage green card", "/marriage-green-card-lawyer/", "Spouses of citizens and residents"),
-                 ("K-1 fiancé(e) visa", "/k1-visa-lawyer/", "A wedding in the United States")]),
+                 ("K-1 fiancé(e) visa", "/k1-visa-lawyer/", "A wedding in the United States"),
+                 ("Waivers", "/immigration-waiver-lawyer/", "I-601, I-601A and I-212")]),
      ("Green card and citizenship", [("Adjustment of status", "/adjustment-of-status-lawyer/", "Applying from inside the U.S."),
-                                     ("Citizenship &amp; naturalization", "/citizenship-lawyer/", "Form N-400 and the interview")]),
-     ("Start here", [("N-400 processing time", "/n400-processing-time/", "N-400 waits for Newark, Philadelphia and Houston"),
-                     ("I-751 evidence checklist", "/i-751-evidence-checklist/", "Removing conditions on a green card")])],
+                                     ("Citizenship &amp; naturalization", "/citizenship-lawyer/", "Form N-400 and the interview"),
+                                     ("N-400 processing time", "/n400-processing-time/", "N-400 waits for Newark, Philadelphia and Houston"),
+                                     ("I-751 evidence checklist", "/i-751-evidence-checklist/", "Removing conditions on a green card")]),
+     ("Humanitarian", [("U visa", "/u-visa-lawyer/", "Crime victims who help the police"),
+                       ("T visa", "/t-visa-lawyer/", "Survivors of labor and sex trafficking"),
+                       ("VAWA", "/vawa-lawyer/", "A green card without your abuser")])],
      ("One firm from your petition to your oath", "When you qualify, we prepare your citizenship application and get you ready for the interview.", "family-hug", "50% 35%")),
   ("greencards", "Green Cards", [
      ("Through family", [("Marriage green card", "/marriage-green-card-lawyer/", "Spouses of citizens and residents"),
