@@ -5,7 +5,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from parts import *
 
 repo = sys.argv[1]
-V = "20261118g"
+V = "20261126a"
 src = open(os.path.join(repo, "index.html"), encoding="utf8").read()
 if "cg-home.css" in src:
     sys.exit("index.html is already the redesign; build from git show master:index.html")
@@ -76,7 +76,7 @@ body = f'''<body class="cg-site home">
 <div class="h-copy">
 <h1 class="eyebrow h-h1"><span class="h-h1-line" aria-hidden="true"></span>Cruz Gold &amp; Associates, Immigration Lawyers</h1>
 <p class="display h-xl h-title">Know your path, your timeline and your fee <em>from the first call.</em></p>
-<p class="lede h-lede">A free consultation with attorney Zachary Gold, for clients across <a href="/immigration-lawyer-new-jersey/">New Jersey</a> and in <a href="/immigration-lawyer-philadelphia/">Philadelphia</a> and <a href="/immigration-lawyer-houston/">Houston</a>. Most applications have a flat fee, and you hear it before any work begins. In English or Spanish.</p>
+<p class="lede h-lede">A free consultation with attorney Zachary Gold, for clients across <a href="/immigration-lawyer-new-jersey/">New Jersey</a>, in <a href="/immigration-lawyer-philadelphia/">Philadelphia</a> and <a href="/immigration-lawyer-houston/">Houston</a>, and across the globe. Most applications have a flat fee, and you hear it before any work begins. In English or Spanish.</p>
 <div class="btn-row">
 <a class="btn btn-gold" href="#book">{CAL.format(s=18, c="currentColor")}Book a free consultation</a>
 <a class="btn btn-line" href="tel:+16099248500">{PHONE.format(s=18, w=2)}Call (609) 924-8500</a>
@@ -115,6 +115,27 @@ body = f'''<body class="cg-site home">
 </div>
 </section>
 
+<section class="h-zachary">
+<div class="wrap split split-56">
+<div class="h-hexpic"><div class="h-hex1" aria-hidden="true"></div><div class="h-hex2" aria-hidden="true"></div><img src="/images/redesign/zachary.webp" alt="Attorney Zachary Gold" width="942" height="1008" loading="lazy"></div>
+<div class="stack24">
+<p class="eyebrow">Your attorney</p>
+<h2 class="display h-l h-h2">Meet attorney Zachary Gold</h2>
+<p class="lede">Zachary Gold owns the firm, and he is the attorney you speak with at your first consultation. He started out here as a paralegal. After studying at Rutgers University, he went on to earn his law degree at Drexel University.</p>
+<ul class="checks">
+<li>{CHECK}Member of the American Immigration Lawyers Association</li>
+<li>{CHECK}Attends USCIS interviews with his clients</li>
+<li>{CHECK}Your fee quoted before any work begins</li>
+<li>{CHECK}Family petitions, work visas and court cases under one roof</li>
+</ul>
+<figure class="h-zq"><svg width="34" height="26" viewBox="0 0 34 26" fill="#bf992d" aria-hidden="true"><path d="M0 26V15C0 6 5 1 13 0l1 4c-4 1-7 4-7 9h6v13zm20 0V15c0-9 5-14 13-15l1 4c-4 1-7 4-7 9h6v13z"/></svg>
+<blockquote class="serif">One thing I really appreciated is that he will never pressure you into doing something just to take your money.</blockquote>
+<figcaption>Marly Lisa White, Google review</figcaption></figure>
+<div class="btn-row"><a class="btn btn-navy" href="#book">Book with Zachary</a><a class="btn btn-line" href="/about/">About the firm</a></div>
+</div>
+</div>
+</section>
+
 <section class="h-svc">
 <div class="wrap">
 <div class="sec-head">
@@ -128,7 +149,7 @@ body = f'''<body class="cg-site home">
      [("All green card routes", "/green-card-lawyer/"), ("Adjustment of status", "/adjustment-of-status-lawyer/"), ("EB-2 National Interest Waiver", "/eb2-niw-lawyer/"), ("EB-5 investor", "/eb-5-visa-lawyer/")], {1})}
 {svc("professional", "50% 25%", "Work &amp; Student Visas", "Temporary visas for professionals, company transferees, investors and students. We prepare the petition, answer requests for evidence and plan the next status.",
      [("H-1B", "/h1b-visa-lawyer/"), ("O-1", "/o1-visa-lawyer/"), ("L-1 and E-2", "/work-visa-lawyer-new-jersey/"), ("All visa types", "/visa-lawyer/")], {2})}
-{svc("parents-embrace", "50% 30%", "Deportation &amp; Asylum", "If you or a family member has received a Notice to Appear, we can represent the person named on it in immigration court. Call as soon as it arrives.",
+{svc("parents-embrace", "50% 30%", "Deportation &amp; Asylum", "If you or a family member has received a Notice to Appear, we can represent the person named on it in immigration court. We take deportation and asylum cases on a case-by-case basis. Call as soon as it arrives.",
      [("Deportation defense", "/deportation-defense-lawyer/"), ("Asylum", "/asylum-lawyer/"), ("Fees for court cases", "/immigration-lawyer-cost/")], set())}
 </div>
 <div class="dots" aria-hidden="true" data-dots="svc"><span class="on"></span><span></span><span></span><span></span></div>
@@ -144,27 +165,6 @@ body = f'''<body class="cg-site home">
 <h2 class="display h-l h-band-h">You will not walk into your interview <em>alone.</em></h2>
 <p class="lede" style="color:#dfe3ec">Attorney Zachary Gold goes over the likely questions with you beforehand, in English or Spanish, and attends your USCIS field office interview in person.</p>
 <div><a class="btn btn-gold" href="#book">Book a free consultation</a></div>
-</div>
-</div>
-</section>
-
-<section class="h-zachary">
-<div class="wrap split split-56">
-<div class="h-hexpic"><div class="h-hex1" aria-hidden="true"></div><div class="h-hex2" aria-hidden="true"></div><img src="/images/redesign/zachary.webp" alt="Attorney Zachary Gold" width="942" height="1008" loading="lazy"></div>
-<div class="stack24">
-<p class="eyebrow">Your attorney</p>
-<h2 class="display h-l h-h2">Meet attorney Zachary Gold</h2>
-<p class="lede">Zachary Gold owns the firm and is the attorney you speak with at your first consultation. He started out at the firm as a paralegal, studied at Rutgers University and earned his law degree at Drexel University.</p>
-<ul class="checks">
-<li>{CHECK}Member of the American Immigration Lawyers Association</li>
-<li>{CHECK}Attends USCIS interviews with his clients</li>
-<li>{CHECK}Your fee quoted before any work begins</li>
-<li>{CHECK}Family petitions, work visas and court cases under one roof</li>
-</ul>
-<figure class="h-zq"><svg width="34" height="26" viewBox="0 0 34 26" fill="#bf992d" aria-hidden="true"><path d="M0 26V15C0 6 5 1 13 0l1 4c-4 1-7 4-7 9h6v13zm20 0V15c0-9 5-14 13-15l1 4c-4 1-7 4-7 9h6v13z"/></svg>
-<blockquote class="serif">One thing I really appreciated is that he will never pressure you into doing something just to take your money.</blockquote>
-<figcaption>Marly Lisa White, Google review</figcaption></figure>
-<div class="btn-row"><a class="btn btn-navy" href="#book">Book with Zachary</a><a class="btn btn-line" href="/about/">About the firm</a></div>
 </div>
 </div>
 </section>

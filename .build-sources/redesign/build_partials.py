@@ -13,7 +13,7 @@ head_note = ("<!-- ====== HEADER (redesign 2026-11) ======\n"
              "     Pages that book with Calendly keep href=\"#book\"; pages without a calendar link /contact/ instead. -->\n")
 hdr = head_note + '<div class="cg">\n' + header(book="#book") + "\n<main id=\"main\">\n"
 ftr = ("</main>\n" + footer(book="#book") + "\n</div>\n" + f'<script src="/js/cg.js?v={V}" defer></script>\n</body>\n</html>\n')
-head_tpl = f'''<!DOCTYPE html>
+head_tpl = rf'''<!DOCTYPE html>
 <html lang="en-US" prefix="og: https://ogp.me/ns#"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -43,13 +43,15 @@ window.dataLayer = window.dataLayer || [];function gtag(){{dataLayer.push(argume
 gtag("set","linker",{{"domains":["cruzgoldlaw.com"]}});
 gtag("js", new Date());
 gtag("set", "developer_id.dZTNiMT", true);
+// Pop-ad traffic is tagged so a GA4 data filter can drop it.
+(function(){{var POP=/(^|\.)(popcash\.net|asdfix\.com|bhnnop\.com|pcdelv\.com|calcpol\.com|asopn\.com|rapolok\.com|namol\.xyz|jandaqwe\.com|wwfx\.xyz|zxclan\.com)$/i,K="cg_traffic_type",t=null;try{{t=sessionStorage.getItem(K);}}catch(e){{}}if(!t){{var h="";try{{h=new URL(document.referrer).hostname;}}catch(e){{}}if(POP.test(h)){{t="pop_ad";try{{sessionStorage.setItem(K,t);}}catch(e){{}}}}}}if(t)gtag("set",{{traffic_type:t}});}})();
 gtag("config", "GT-K4TGJWQ6");
 </script>
 <link rel="icon" href="/images/Favicon_legal_Services.png" sizes="32x32">
 <link rel="icon" href="/images/Favicon_legal_Services.png" sizes="192x192">
 <link rel="apple-touch-icon" href="/images/Favicon_legal_Services.png">
 <meta name="msapplication-TileImage" content="/images/Favicon_legal_Services.png">
-<script defer src="/js/calendly-init.v2.js?v=20261003"></script>
+<script defer src="/js/calendly-init.v2.js?v=20261125"></script>
 </head>
 '''
 for name, html in (("header.html", hdr), ("footer.html", ftr), ("head-template.html", head_tpl)):

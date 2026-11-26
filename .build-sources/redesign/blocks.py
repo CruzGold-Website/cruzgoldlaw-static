@@ -68,7 +68,8 @@ def split_lead(li):
         return lead, inner(li)
     h = inner(li)
     m = re.match(r"^([^<.:]{2,60})[.:]\s+(.*)$", h, re.S)
-    if m and len(m.group(1).split()) <= 7:
+    # a lead starts with a capital; a lowercase item ("proof of your citizenship: passport, ...") is a checklist line, not a title
+    if m and len(m.group(1).split()) <= 7 and m.group(1).strip()[:1].isupper():
         return m.group(1).strip(), m.group(2)
     return None, h
 
@@ -113,8 +114,9 @@ def r_cards(b):
         for k, (l, rest) in enumerate(parsed):
             if not l:
                 m = re.match(r"^([^<,]{2,60}),\s+(.*)$", rest, re.S)
+                # the rest continues the title's sentence ("Through the diversity lottery / which gives ..."), so it keeps its case
                 if m and len(m.group(1).split()) <= 7:
-                    parsed[k] = (m.group(1).strip(), cap1(m.group(2)))
+                    parsed[k] = (m.group(1).strip(), m.group(2))
     for i, (lead, rest) in enumerate(parsed):
         h3 = f"<h3>{H.escape(lead)}</h3>" if lead else ""
         out.append(f'<div class="card-c">{CARD_ICONS[i % 4]}{h3}<p>{rest}</p></div>')

@@ -7,7 +7,7 @@ from extract import Page, txt, _cls, head_of, meta_fingerprint, REPO, live_html
 from blocks import *
 from parts import header, footer, CAL, PHONE, GOOGLE, STAR, stars, PHONES, PLUS, MINUS, ARROW
 
-V = "20261118g"
+V = "20261126a"
 IMG = "/images/redesign/"
 CALENDLY_PARAMS = "primary_color=bf992d&amp;text_color=0c152c"
 
@@ -60,6 +60,7 @@ PHOTO = {
   "h1b-visa-lawyer": ("professional", "50% 25%"), "o1-visa-lawyer": ("professional", "50% 25%"), "deportation-defense-lawyer": ("parents-embrace", "50% 30%"),
   "asylum-lawyer": ("reunion-grandpa", "50% 30%"), "criminal-immigration-lawyer": ("senior-couple", "50% 35%"), "vawa-lawyer": ("family-door", "50% 35%"),
   "immigration-lawyer-cost": ("senior-couple", "50% 35%"),
+  "uscis-translation-checklist": ("professional", "50% 25%"),
   "immigration-waiver-lawyer": ("airport-reunion", "58% 50%"), "u-visa-lawyer": ("dad-daughter", "50% 35%"), "t-visa-lawyer": ("family-baby", "50% 40%"),
   "n400-processing-time": ("oath", "50% 35%"), "eb2-niw-requirements": ("professional", "50% 25%"), "o1-visa-requirements": ("beach-flag", "50% 40%"),
   "immigration-attorneys-near-me": ("dad-daughter", "50% 35%"), "traveling-abroad-as-a-non-citizen-key-considerations": ("airport-reunion", "50% 40%"),
@@ -74,13 +75,14 @@ PHOTO = {
 LABEL = {  # guide and article labels (09 gives eight of them)
   "n400-processing-time": "Guide · Citizenship", "eb2-niw-requirements": "Guide · Green cards", "o1-visa-requirements": "Guide · Work visas",
   "immigration-attorneys-near-me": "Guide · Finding a lawyer", "i-751-evidence-checklist": "Guide · Green cards",
+  "uscis-translation-checklist": "Guide · Green cards",
   "traveling-abroad-as-a-non-citizen-key-considerations": "Article · Travel",
   "the-waiting-game-understanding-lengthy-immigration-process-times-in-the-u-s": "Article · Processing times",
   "common-misconceptions-in-immigration-law": "Article · Immigration law", "cruz-gold-law-trusted-immigration-lawyers-in-new-jersey": "Article · New Jersey",
   "new-jersey-us-immigration-laws": "Article · New Jersey", "navigating-immigration-changes-under-the-2025-trump-administration": "Article · Policy changes",
   "understanding-the-rights-of-undocumented-individuals-in-the-usa": "Article · Your rights", "immigration-lawyer-cost": "Guide · Fees",
 }
-GUIDES = ["n400-processing-time", "i-751-evidence-checklist", "eb2-niw-requirements", "o1-visa-requirements", "immigration-attorneys-near-me",
+GUIDES = ["uscis-translation-checklist", "n400-processing-time", "i-751-evidence-checklist", "eb2-niw-requirements", "o1-visa-requirements", "immigration-attorneys-near-me",
           "cruz-gold-law-trusted-immigration-lawyers-in-new-jersey", "new-jersey-us-immigration-laws", "common-misconceptions-in-immigration-law",
           "navigating-immigration-changes-under-the-2025-trump-administration", "the-waiting-game-understanding-lengthy-immigration-process-times-in-the-u-s",
           "traveling-abroad-as-a-non-citizen-key-considerations", "understanding-the-rights-of-undocumented-individuals-in-the-usa"]

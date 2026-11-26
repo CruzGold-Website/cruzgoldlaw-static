@@ -6,9 +6,31 @@ from bs4 import BeautifulSoup, NavigableString, Tag
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 BASE_REF = os.environ.get("CG_BASE_REF", "master")
 
+# Copy changes for the redesign that are not on master yet: slug -> [(old, new, times old must appear)].
+# The build stops if a text is not found the expected number of times (master changed), so nothing is skipped quietly.
+EDITS = {
+  # Nov 24 call, Danilo's list 1 items 8 and 9: the "Ways to pay" row and the FAQ answer; the medical exam leaves the no-fee row
+  "immigration-lawyer-cost": [
+    ("We accept credit cards, and when money is tight we try to set up a payment plan.",
+     "We accept all major credit cards and offer payment plans through Affirm, subject to approval.", 2),
+    ('<span class="cg-kv-k">Affidavit of support (Form I-864) and medical exam form (Form I-693)</span>',
+     '<span class="cg-kv-k">Affidavit of support (Form I-864)</span>', 1)],
+  # item 6: a line before each "cases we handle" list
+  "deportation-defense-lawyer": [
+    ('id="deportation-cases-we-handle">Deportation cases we handle</h2>\n',
+     'id="deportation-cases-we-handle">Deportation cases we handle</h2>\n<p>We take deportation cases on a case-by-case basis.</p>\n', 1)],
+  "asylum-lawyer": [
+    ('id="asylum-cases-we-handle">Asylum cases we handle</h2>\n',
+     'id="asylum-cases-we-handle">Asylum cases we handle</h2>\n<p>We take asylum cases on a case-by-case basis.</p>\n', 1)],
+}
+
 def live_html(slug):
     path = "404.html" if slug == "404" else ("index.html" if slug == "" else slug + "/index.html")
-    return subprocess.run(["git", "-C", REPO, "show", f"{BASE_REF}:{path}"], capture_output=True, check=True).stdout.decode("utf8")
+    raw = subprocess.run(["git", "-C", REPO, "show", f"{BASE_REF}:{path}"], capture_output=True, check=True).stdout.decode("utf8")
+    for old, new, n in EDITS.get(slug, ()):
+        assert raw.count(old) == n, f"{slug}: expected {n}x {old[:60]!r}, found {raw.count(old)}"
+        raw = raw.replace(old, new)
+    return raw
 
 def txt(el):
     return re.sub(r"\s+", " ", el.get_text(" ", strip=True)).strip()

@@ -611,7 +611,7 @@ SITEMAP = [
              ("Student Visas", "/student-visa-lawyer-new-jersey/")]),
   ("Deportation &amp; Asylum", [("Deportation Defense Lawyer", "/deportation-defense-lawyer/"), ("Asylum Lawyer", "/asylum-lawyer/"),
              ("Criminal Immigration Lawyer", "/criminal-immigration-lawyer/"), ("VAWA Lawyer", "/vawa-lawyer/")]),
-  ("Guides", [("I-751 Evidence Checklist", "/i-751-evidence-checklist/"), ("EB-2 NIW Requirements", "/eb2-niw-requirements/"), ("O-1 Visa Requirements", "/o1-visa-requirements/"),
+  ("Guides", [("USCIS Translation Checklist", "/uscis-translation-checklist/"), ("I-751 Evidence Checklist", "/i-751-evidence-checklist/"), ("EB-2 NIW Requirements", "/eb2-niw-requirements/"), ("O-1 Visa Requirements", "/o1-visa-requirements/"),
               ("N-400 Processing Time by Field Office", "/n400-processing-time/"), ("Immigration Lawyer Cost", "/immigration-lawyer-cost/"),
               ("Finding an Immigration Attorney Near You", "/immigration-attorneys-near-me/")]),
   ("Blog", [("All Articles", "/blog/"), ("Common Misconceptions in Immigration Law", "/common-misconceptions-in-immigration-law/"),

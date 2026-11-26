@@ -106,6 +106,40 @@ Custom domains:
 
 ---
 
+## Visit attribution
+
+Every page loads `js/calendly-init.v2.js`, which also records how a visitor arrived and what they viewed, so the
+CRM can show the marketing channel and page trail behind each booking.
+
+- **In the browser.** First arrival (landing URL, outside referrer, UTMs, ad click IDs, plus how the page was opened:
+  navigation type and whether the tab was fresh, which the CRM uses to read arrivals with no referrer), a later tagged arrival, the
+  pages viewed (up to 50) and phone/email link clicks are kept in `localStorage` under `cg_visit_v1` for 30 days.
+  Nothing is sent while the visitor only reads.
+- **When they use the booking widget.** The record is POSTed to `/api/visit` (a click inside the widget, a time
+  picked, and again when the booking completes). The visit id is also added to every Calendly embed URL as
+  `salesforce_uuid`, which Calendly echoes in its booking webhook; that id is how the CRM joins visit to lead.
+- **`functions/api/visit.js`** (Cloudflare Pages Function) accepts same-site requests only, validates the record,
+  adds city-level location from Cloudflare (`request.cf`; no IP address is read or stored) and forwards it to the
+  CRM's `/api/funnel-sessions`.
+
+The Pages project needs two settings (Settings → Variables and Secrets, for Production and Preview):
+
+| Name | Value |
+|---|---|
+| `CRM_API_URL` | Base URL of the CRM backend, no path |
+| `LEAD_WEBHOOK_KEY` | Secret. The same key the CRM checks on `/api/funnel-sessions` |
+
+Until both exist the function answers 204 and forwards nothing; pages and booking are unaffected.
+
+`_routes.json` limits Functions to `/api/*`, so ordinary page views never invoke a Function.
+
+```
+npm test        # collector unit tests (node --test)
+npm run dev     # wrangler pages dev on :8788; put the two settings in .dev.vars
+```
+
+---
+
 ## Configuration files
 
 | File | Purpose |
