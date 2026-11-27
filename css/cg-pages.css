@@ -360,11 +360,6 @@
 .g-head-t{display:flex;flex-direction:column;gap:24px}
 .g-head-h{font-size:58px;line-height:1.06}
 .g-head .lede{max-width:560px}
-/* Guide intro: a long paragraph whose line count can differ by one between Mulish and its size-matched fallback, which moved the
-   byline, photo and body when the font arrived late (CLS up to 0.18 on the USCIS and N-400 guides). Same preloaded file, font-display:optional:
-   if Mulish is not ready at first paint this paragraph stays in the fallback for that view instead of reflowing. */
-@font-face{font-family:'Mulish Intro';font-style:normal;font-weight:400 800;font-display:optional;src:url(/fonts/mulish-v18-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-.g-head .lede{font-family:'Mulish Intro','Mulish Fallback',system-ui,sans-serif}
 .byline{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-top:22px;border-top:1px solid #e3d6bd}
 .byline img{width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:50% 20%;border:2px solid #bf992d}
 .byline > span{display:flex;flex-direction:column;gap:2px;font-size:14.5px}

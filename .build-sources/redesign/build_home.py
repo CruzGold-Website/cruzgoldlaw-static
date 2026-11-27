@@ -5,7 +5,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from parts import *
 
 repo = sys.argv[1]
-V = "20261127a"
+V = "20261126a"
 src = open(os.path.join(repo, "index.html"), encoding="utf8").read()
 if "cg-home.css" in src:
     sys.exit("index.html is already the redesign; build from git show master:index.html")
